@@ -1,0 +1,2 @@
+Esta carpeta va a tener las Interfaces HTM, Archivos JavaScript
+de consultas dinamicas y reportes.

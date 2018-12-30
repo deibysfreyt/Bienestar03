@@ -1,0 +1,2 @@
+Vamos a tener los Archivos cargados en el sistema por el usuario:
+Imagenes jpg, png, gif, pdf.

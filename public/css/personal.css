@@ -1,0 +1,13 @@
+#fondo{
+	background-image: url(imagenes/fundacion.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	height: 100%;
+	width: 100%;
+}
+
+#caja {
+	background: #efa420;
+	box-shadow: 5px 10px 8px #888888;
+	border-radius: 10px;
+}

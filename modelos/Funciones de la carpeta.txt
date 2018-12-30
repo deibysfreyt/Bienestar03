@@ -1,0 +1,3 @@
+Vamos a tener los Archivos PHP conlas intrucciones para:
+Insertar, Editar, Eliminar, Listar y Buscar registros
+De las diferentes tablas.

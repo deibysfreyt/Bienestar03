@@ -1,0 +1,2 @@
+Vamos a tener los Archivos PHP que van a retornar valores
+a las peticiones ajex que las referencien.
