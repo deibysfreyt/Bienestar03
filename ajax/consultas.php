@@ -81,7 +81,7 @@
 					"1"=>$reg->id_solicitud,
 					"2"=>$reg->fecha,
 					"3"=>$reg->solicitante.' - '.$reg->cedula_s,
-					"4"=>$reg->beneficiario.' - '.$reg->cedula_p,
+					"4"=>$reg->beneficiario.' - '.$reg->cedula_b,
 					"5"=>$reg->solicitud.' - '.$reg->descripcion,
 					"6"=>$reg->parroquia,					
 					"7"=>($reg->estado == 'En espera')?'<span class="label bg-red">En espera</span>':
@@ -108,11 +108,11 @@
 				//Recorrernos todos los registro 1 a 1 y lo almaceno en la variable $reg
 			while ($reg = $rspta->fetchObject()) {
 				$data[] = array(
-					"0"=>$reg->fecha_us,
+					"0"=>$reg->fecha_b,
 					"1"=>$reg->id_solicitud,
-					"2"=>$reg->usuario,
-					"3"=>$reg->cargo,
-					"4"=>$reg->descripcion_u
+					"2"=>$reg->cargo,
+					"3"=>$reg->usuario,
+					"4"=>$reg->accion.' - '.$reg->descripcion
 				);
 			} //Declaramos un nuevo array y le asignamos los valores
 			$results = array(

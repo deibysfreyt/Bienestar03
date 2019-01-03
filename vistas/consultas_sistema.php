@@ -44,8 +44,8 @@
             <thead>          
               <th>Fecha</th>
               <th>N° de Control</th>
+              <th>Cargo</th>
               <th>Usuario</th>
-              <th>Cargo</th> 
               <th>Actividad</th>        
             </thead>
             <tbody>
@@ -54,9 +54,9 @@
             <tfoot>
               <th>Fecha</th>
               <th>N° de Control</th>
+              <th>Cargo</th>
               <th>Usuario</th>
-              <th>Cargo</th> 
-              <th>Actividad</th>
+              <th>Actividad</th> 
             </tfoot>
           </table>
         </div>

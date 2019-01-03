@@ -61,11 +61,12 @@
           <form action="" method="POST" id="formulario" name="formulario" >
             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <label>N° Contl. - Benef. - .CI. (*):</label>
-              <select name="id_persona" id="id_persona" class="form-control selectpicker" data-live-search="true" title="Seleccione un Beneficiario" required>
+              <select name="id_solicitud" id="id_solicitud" class="form-control selectpicker" data-live-search="true" title="Seleccione un Beneficiario" required>
               </select>
             </div>
             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <input type="hidden" name="id_visita_social" id="id_visita_social">
+              <input type="hidden" name="fecha_a" id="fecha_a" readonly=”readonly”>
               <label>Fecha(*):</label>
               <input type="date" class="form-control" name="fecha_v" id="fecha_v" placeholder="fecha" required>
             </div>
@@ -79,7 +80,7 @@
             </div>
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <button class="btn btn-danger" onclick="cancelarform()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
-              <button class="btn btn-primary" type="submit" id="btnGuardar" onmouseover="validacionV()"><i class="fa fa-save"></i> Guardar</button>
+              <button class="btn btn-primary" type="submit" id="btnGuardar" ><i class="fa fa-save"></i> Guardar</button>
             </div>
           </form>
         </div>

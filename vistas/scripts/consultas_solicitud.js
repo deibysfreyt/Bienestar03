@@ -40,10 +40,10 @@ function limpiar(){
 	$("#beneficio_gubernamental").val("");
 
 	//Beneficiario
-	$("#id_persona").val("");
+	$("#id_beneficiario").val("");
 	$("#cedula_b").val("");
 	$("#nombre_apellido_b").val("");
-	$("#parentesco_b").val("");
+	$("#parentesco").val("");
 	$("#semana_embarazo_b").val("");
 	$("#id_tipo_solicitud").val("");
 	$("#talla_zapato").val("");
@@ -53,6 +53,7 @@ function limpiar(){
 	//Informacion adicional
 	$("#id_solicitud").val("");
 	$("#medio_informacion").val("");
+	$("#observacion").val("");
 	$("#tipo_vivienda").val("");
 	$("#tenencia").val("");
 	$("#construccion").val("");
@@ -143,16 +144,16 @@ function mostrar(id_solicitud){
 		$("#ingreso").val(data.ingreso);
 		
 		//Devuelvo los datos del Beneficiario 
-		$("#cedula_b").val(data.cedula_p);
-		$("#nombre_apellido_b").val(data.nombre_apellido_p);
-		$("#fecha_nacimiento_b").val(data.fecha_nacimiento_p);
-		$("#parentesco_b").val(data.parentesco);		
-		$("#semana_embarazo_b").val(data.semana_embarazo);		
+		$("#cedula_b").val(data.cedula_b);
+		$("#nombre_apellido_b").val(data.nombre_apellido_b);
+		$("#fecha_nacimiento_b").val(data.fecha_nacimiento_b);
+		$("#parentesco").val(data.parentesco);		
+		$("#semana_embarazo").val(data.semana_embarazo);		
 		$("#talla_zapato").val(data.talla_zapato);		
 		$("#talla_pantalon").val(data.talla_pantalon);		
 		$("#talla_franela").val(data.talla_franela);
 		
-		//$("#id_persona").val(data.id_persona);
+		//$("#id_beneficiario").val(data.id_beneficiario);
 
 		//Solicitud
 		$("#id_solicitud").val(data.id_solicitud);
@@ -160,6 +161,7 @@ function mostrar(id_solicitud){
 		$("#solicitud").val(data.solicitud);
 		$("#descripcion").val(data.descripcion);
 		$("#medio_informacion").val(data.medio_informacion);
+		$("#observacion").val(data.observacion);
 		$("#tipo_vivienda").val(data.tipo_vivienda);
 		$("#tenencia").val(data.tenencia);
 		$("#construccion").val(data.construccion);

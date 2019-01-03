@@ -1,16 +1,21 @@
 <?php 
 		//Llamamos al modelo
 	require_once("../modelos/modelo_visita_social.php");
+	
+	if (strlen(session_id()) < 1)
+		session_start();
 
 	$visita_social = new VisitaSocial();
 
 		// Limpiamos cada variable que es enviada por el AJAX con la función "LimpiarCadena()"
 	$id_visita_social = isset($_POST["id_visita_social"])? limpiarCadena($_POST["id_visita_social"]): "";
-	$id_persona = isset($_POST["id_persona"])? limpiarCadena($_POST["id_persona"]): "";
+	$id_solicitud = isset($_POST["id_solicitud"])? limpiarCadena($_POST["id_solicitud"]): "";
 	$fecha_v = isset($_POST["fecha_v"])? limpiarCadena($_POST["fecha_v"]): "";
 	$observaciones = isset($_POST["observaciones"])? limpiarCadena($_POST["observaciones"]): "";
 	$trabajador_social = isset($_POST["trabajador_social"])? limpiarCadena($_POST["trabajador_social"]): "";
 	$id_solicitud = isset($_POST["id_solicitud"])? limpiarCadena($_POST["id_solicitud"]): "";
+	$id_usuario = $_SESSION["id_usuario"];
+	$fecha_a = isset($_POST["fecha_a"])? limpiarCadena($_POST["fecha_a"]): "";
 	
 
 	switch ($_GET["op"]) { // según la opción "op" enviado por el AJAX se procede a comparar
@@ -19,13 +24,13 @@
 				//Verificamos si el ID esta vació
 			if (empty($id_visita_social)) { //si el ID esta vació guardamos un nuevo registro
 
-				$rspta = $visita_social->insertar($id_persona,$fecha_v,$observaciones,$trabajador_social);
+				$rspta = $visita_social->insertar($id_solicitud,$fecha_v,$observaciones,$trabajador_social,$id_usuario,$fecha_a);
 					//Dependiendo de la inserción, la variable "repta" puede ser True o false
 				echo $rspta ? "La Visita Social a sido registrado correctamente" : "No se pudo Registrar la Visita Social";
 
 			}else{ // Si el ID no esta vació procedemos a Editar o Actualizar la tabla
 
-				$rspta = $visita_social->editar($id_visita_social,$id_persona,$fecha_v,$observaciones,$trabajador_social);
+				$rspta = $visita_social->editar($id_visita_social,$id_solicitud,$fecha_v,$observaciones,$trabajador_social,$id_usuario,$fecha_a);
 					//Dependiendo de la inserción, la variable "repta" puede ser True o false
 				echo $rspta ? "La Visita Social fue actualizado correctamente" : "No se puedo Actualizar la Visita Social";
 			}
@@ -33,7 +38,7 @@
 
 		case 'mostrar':
 				//Enviamos el ID para traer todo los datos referente a ella 
-			$rspta = $visita_social->mostrar($id_persona);
+			$rspta = $visita_social->mostrar($id_solicitud);
 				//Codificar el resultado utilizando json
 			echo json_encode($rspta);
 
@@ -48,7 +53,7 @@
 			while ($reg = $rspta->fetchObject()) {
 					//Almacenamos todos los datos obtenido en el array $data
 				$data[] = array( //Los almacenamos en cada variable
-					"0"=>'<button class="btn btn-warning" onclick="mostrar('.$reg->id_persona.')"><i class="fa fa-pencil"></i></button>',
+					"0"=>'<button class="btn btn-warning" onclick="mostrar('.$reg->id_solicitud.')"><i class="fa fa-pencil"></i></button>',
 					"1"=>$reg->beneficiario.' - '.$reg->cedula,
 					"2"=>$reg->fecha,
 					"3"=>$reg->observaciones,
@@ -76,7 +81,7 @@
 				//Recorrernos todos los registro 1 a 1 y lo almaceno en la variable $reg
 			while ($reg = $rspta->fetchObject()) {
 					//Mostramos o imprimimos los dato uno a uno
-				echo '<option value='.$reg->id_persona.'>'.$reg->id_solicitud.' - '.$reg->nombre_apellido_p.' - '.$reg->cedula_p.'</option>';											
+				echo '<option value='.$reg->id_solicitud.'>'.$reg->id_solicitud.' - '.$reg->nombre_apellido_b.' - '.$reg->cedula_b.'</option>';											
 			}
 
 		break;

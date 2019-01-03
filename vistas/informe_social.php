@@ -185,7 +185,7 @@
                 <div class="col-md-12">
                   <h3> Step 2 - Datos del Beneficiario</h3>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <input type="hidden" name="id_persona" id="id_persona">
+                    <input type="hidden" name="id_beneficiario" id="id_beneficiario">
                     <label>Cedula:</label>
                     <input type="text" class="form-control" name="cedula_b" id="cedula_b" maxlength="8" placeholder="12345678">
                   </div>
@@ -199,19 +199,19 @@
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label>Parentesco(*):</label>
-                    <select name="parentesco_b" id="parentesco_b" class="form-control selectpicker" data-live-search="true" title="Seleccione un parentesco" required>
+                    <select name="parentesco" id="parentesco" class="form-control selectpicker" data-live-search="true" title="Seleccione un parentesco" required>
                       <option value="Padre">Padre</option>
-                        <option value="Madre">Madre</option>
-                        <option value="Suegra(o)">Suegra(o)</option>
-                        <option value="Hija(o)">Hija(o)</option>
-                        <option value="Hermana(o)">Hermana(o)</option>
-                        <option value="Cuñada(o)">Cuñada(o)</option>
-                        <option value="Abuela(o)">Abuela(o)</option>
-                        <option value="Yerna(o)">Yerna(o)</option>
-                        <option value="Nieta(o)">Nieta(o)</option>
-                        <option value="Tia(o)">Tía(o)</option>
-                        <option value="Sobrina(o)">Sobrina(o)</option>
-                        <option value="Prima(o)">Prima(o)</option>
+                      <option value="Madre">Madre</option>
+                      <option value="Suegra(o)">Suegra(o)</option>
+                      <option value="Hija(o)">Hija(o)</option>
+                      <option value="Hermana(o)">Hermana(o)</option>
+                      <option value="Cuñada(o)">Cuñada(o)</option>
+                      <option value="Abuela(o)">Abuela(o)</option>
+                      <option value="Yerna(o)">Yerna(o)</option>
+                      <option value="Nieta(o)">Nieta(o)</option>
+                      <option value="Tia(o)">Tía(o)</option>
+                      <option value="Sobrina(o)">Sobrina(o)</option>
+                      <option value="Prima(o)">Prima(o)</option>
                     </select>
                   </div>                  
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -221,7 +221,7 @@
                   </div>
                   <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">                        
                     <label>Semana de Embarazo: </label>                                  
-                    <select name="semana_embarazo_b" id="semana_embarazo_b" class="form-control select-picker" title="En caso de Canastilla" data-live-search="true">
+                    <select name="semana_embarazo" id="semana_embarazo" class="form-control select-picker" title="En caso de Canastilla" data-live-search="true">
                       <?php
                         for ($i=0; $i <= 42; $i++) { 
                           echo "<option value=$i>". $i."</option>";
@@ -280,12 +280,16 @@
               <div class="col-xs-12">
                 <div class="col-md-12">
                   <h3> Step 3 - Información de Solicitud</h3>
-                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <label>Medio de Información(*):</label>
                     <input type="hidden" name="id_solicitud" id="id_solicitud">
-                    <input type="text" class="form-control" name="medio_informacion" id="medio_informacion" maxlength="30" placeholder="Mdio en que se entero de la Fundacion" required>
+                    <input type="text" class="form-control" name="medio_informacion" id="medio_informacion" maxlength="30" placeholder="Medio en que se entero de la Fundacion" required>
                   </div>
-                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <label>Observación:</label>
+                    <input type="text" class="form-control" name="observacion" id="observacion" maxlength="45" placeholder="Alguna observacion que acotar">
+                  </div>
+                  <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <label>Fecha de Solicitud(*):</label>
                     <input type="date" class="form-control" name="fecha" id="fecha" readonly=”readonly” required>
                   </div>
@@ -364,7 +368,7 @@
                     <div class="setup-panel">
                				<div>
                         <a href="#step-2"><button class=" btn btn-previous btn-lg pull-right" type="button" style="margin: 2px"><strong>Anterior</strong></button></a>
-                        <button class="btn btn-primary btn-lg pull-right" type="submit" id="btnGuardar" style="margin: 2px" onmouseover="validacion()" ><i class="fa fa-save"></i> Guardar</button> 
+                        <button class="btn btn-primary btn-lg pull-right" type="submit" id="btnGuardar" style="margin: 2px" ><i class="fa fa-save"></i> Guardar</button> 
                 			</div>                
             				</div>                          
                   </div>

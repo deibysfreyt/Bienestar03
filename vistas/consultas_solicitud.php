@@ -179,7 +179,7 @@
                   </div>
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label>Parentesco(*):</label>
-                    <input type="text" class="form-control" name="parentesco_b" id="parentesco_b" readonly=”readonly”>
+                    <input type="text" class="form-control" name="parentesco" id="parentesco" readonly=”readonly”>
                   </div>                  
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label>Tipo de Solicitud(*):</label>
@@ -188,7 +188,7 @@
                   </div>
                   <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">                        
                     <label>Semana de Embarazo: </label>
-                    <input type="text" class="form-control" name="semana_embarazo_b" id="semana_embarazo_b" readonly=”readonly”>
+                    <input type="text" class="form-control" name="semana_embarazo" id="semana_embarazo" readonly=”readonly”>
                   </div>
                   <div class="form-group col-lg-3 col-md-3 col-sm-4 col-xs-12">
                     <label>Talla de Zapato:</label>
@@ -215,11 +215,15 @@
               <div class="col-xs-12">
                 <div class="col-md-12">
                   <h3> Step 3 - Información de Solicitud</h3>
-                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <label>Medio de Información(*):</label>
-                    <input type="text" class="form-control" name="medio_informacion" id="medio_informacion" maxlength="30" readonly=”readonly”>
+                    <input type="text" class="form-control" name="medio_informacion" id="medio_informacion" readonly=”readonly”>
                   </div>
-                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <label>Observación:</label>
+                    <input type="text" class="form-control" name="observacion" id="observacion" readonly=”readonly”>
+                  </div>
+                  <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <label>Fecha de Solicitud(*):</label>
                     <input type="date" class="form-control" name="fecha" id="fecha" readonly=”readonly” required>
                   </div>

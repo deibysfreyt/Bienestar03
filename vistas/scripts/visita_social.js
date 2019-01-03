@@ -13,8 +13,8 @@ function init(){
 		//Mediante JQuery enviamos la opción y las opciones las agregamos al ID
 	$.post("../ajax/visita_social.php?op=selectpersona",function(r){
 			//las opciones las agregamos al ID
-		$("#id_persona").html(r);
-		$('#id_persona').selectpicker('refresh');
+		$("#id_solicitud").html(r);
+		$('#id_solicitud').selectpicker('refresh');
 	})
 
 		//Obtenemos la fecha actual
@@ -23,6 +23,7 @@ function init(){
 	var month = ("0" + (now.getMonth() + 1)).slice(-2);
 	var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
     $('#fecha_actual').val(today);
+    $('#fecha_a').val(today);
 }
 
 	//Función limpiar los objetos del formulario ID
@@ -30,14 +31,15 @@ function limpiar(){
 	$("#id_visita_social").val("");
 	$("#observaciones").val("");
 	$("#trabajador_social").val("");
-	$("#id_persona").val("")
+	$("#id_solicitud").val("");
 
 		//Obtenemos la fecha_v actual
 	var now = new Date();
 	var day = ("0" + now.getDate()).slice(-2);
 	var month = ("0" + (now.getMonth() + 1)).slice(-2);
-	var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+	var today = now.getFullYear()+"-"+(month)+"-"+(day);
     $('#fecha_v').val(today);
+    $('#fecha_a').val(today);
 }
 
 	//Función mostrar formulario
@@ -107,15 +109,15 @@ function guardaryeditar(e){
 }
 
 	//Mostramos los datos referente al ID
-function mostrar(id_persona){
+function mostrar(id_solicitud){
 		//Mediante JQuery enviamos la opción y la variable ID
-	$.post("../ajax/visita_social.php?op=mostrar",{id_persona : id_persona}, function(data, status) //La función va a obtener un valor que lo vamos almacenar en data
+	$.post("../ajax/visita_social.php?op=mostrar",{id_solicitud : id_solicitud}, function(data, status) //La función va a obtener un valor que lo vamos almacenar en data
 	{
 		data = JSON.parse(data); //Convierto los datos que recibo en objeto JavaScrip
 		mostrarform(true); //Mostramos el formulario flag = true
 			//Busco los objeto cuyo ID y le enviamos el nuevo objeto
-		$("#id_persona").val(data.id_persona); 
-		$('#id_persona').selectpicker('refresh');
+		$("#id_solicitud").val(data.id_solicitud); 
+		$('#id_solicitud').selectpicker('refresh');
 		$("#fecha_v").val(data.fecha_v);
 		$("#observaciones").val(data.observaciones);
 		$("#trabajador_social").val(data.trabajador_social);

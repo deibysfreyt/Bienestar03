@@ -45,23 +45,24 @@ function limpiar(){
 	$("#ingreso").val("");
 
 	//Beneficiario
-	$("#id_persona").val("");
+	$("#id_beneficiario").val("");
 	$("#cedula_b").val("");
 	$("#nombre_apellido_b").val("");
-	$("#parentesco_b").val("");
-	$("#semana_embarazo_b").val("");
-	$("#id_tipo_solicitud").val("");
+	$("#parentesco").val("");
+	$("#semana_embarazo").val("");
 	$("#talla_zapato").val("");
 	$("#talla_pantalon").val("");
 	$("#talla_franela").val("");
 
-	//Informacion adicional
+	//Solicitud
 	$("#id_solicitud").val("");
+	$("#id_tipo_solicitud").val("");
 	$("#medio_informacion").val("");
 	$("#tipo_vivienda").val("");
 	$("#tenencia").val("");
 	$("#construccion").val("");
 	$("#tipo_piso").val("");
+	$("#observacion").val("");
 
 	//removemos las filas de los familiares
 	$(".filas").remove();
@@ -173,12 +174,13 @@ function mostrart(id_solicitud){
 		$("#num_hijo").selectpicker('refresh');
 		$("#ingreso").val(data.ingreso);
 		
-		//Devuelvo los datos del Beneficiario 
-		$("#cedula_b").val(data.cedula_p);
-		$("#nombre_apellido_b").val(data.nombre_apellido_p);
-		$("#fecha_nacimiento_b").val(data.fecha_nacimiento_p);
-		$("#parentesco_b").val(data.parentesco);
-		$('#parentesco_b').selectpicker('refresh');
+		//Devuelvo los datos del Beneficiario
+		$("#id_beneficiario").val(data.id_beneficiario); 
+		$("#cedula_b").val(data.cedula_b);
+		$("#nombre_apellido_b").val(data.nombre_apellido_b);
+		$("#fecha_nacimiento_b").val(data.fecha_nacimiento_b);
+		$("#parentesco").val(data.parentesco);
+		$('#parentesco').selectpicker('refresh');
 		$("#semana_embarazo").val(data.semana_embarazo);
 		$('#semana_embarazo').selectpicker('refresh');
 		$("#talla_zapato").val(data.talla_zapato);
@@ -187,7 +189,6 @@ function mostrart(id_solicitud){
 		$('#talla_pantalon').selectpicker('refresh');
 		$("#talla_franela").val(data.talla_franela);
 		$('#talla_franela').selectpicker('refresh');
-		$("#id_persona").val(data.id_persona);
 		
 	})
 }
@@ -235,12 +236,13 @@ function mostrarb(id_solicitud){
 		data = JSON.parse(data);
 		mostrarform(true);
 		
-		//Devuelvo los datos del Beneficiario 
+		//Devuelvo los datos del Beneficiario
+		$("#id_beneficiario").val(data.id_beneficiario);
 		$("#cedula_b").val(data.cedula_p);
 		$("#nombre_apellido_b").val(data.nombre_apellido_p);
 		$("#fecha_nacimiento_b").val(data.fecha_nacimiento_p);
-		$("#parentesco_b").val(data.parentesco);
-		$('#parentesco_b').selectpicker('refresh');
+		$("#parentesco").val(data.parentesco);
+		$('#parentesco').selectpicker('refresh');
 		$("#semana_embarazo").val(data.semana_embarazo);
 		$('#semana_embarazo').selectpicker('refresh');
 		$("#talla_zapato").val(data.talla_zapato);
@@ -249,7 +251,6 @@ function mostrarb(id_solicitud){
 		$('#talla_pantalon').selectpicker('refresh');
 		$("#talla_franela").val(data.talla_franela);
 		$('#talla_franela').selectpicker('refresh');
-		$("#id_persona").val(data.id_persona);
 		
 	})
 }

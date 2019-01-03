@@ -6,7 +6,7 @@
 	define("PUERTO", "5432");
 
 	//Nombre de la base de datos
-	define("DB_NAME", "bd_bienestar02");
+	define("DB_NAME", "bd_bienestar03");
 
 	//Usuario de la base de datos
 	define("DB_USERNAME", "postgres");

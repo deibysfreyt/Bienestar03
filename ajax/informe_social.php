@@ -29,53 +29,55 @@
 		//Solicitud
 	$id_solicitud = isset($_POST["id_solicitud"])? limpiarCadena($_POST["id_solicitud"]): "";
 	$id_tipo_solicitud = isset($_POST["id_tipo_solicitud"])? limpiarCadena($_POST["id_tipo_solicitud"]): "";
+	$id_usuario = $_SESSION["id_usuario"];
 	$fecha = isset($_POST["fecha"])? limpiarCadena($_POST["fecha"]): "";
 	$medio_informacion = isset($_POST["medio_informacion"])? limpiarCadena($_POST["medio_informacion"]): "";
 	$tipo_vivienda = isset($_POST["tipo_vivienda"])? limpiarCadena($_POST["tipo_vivienda"]): "";
 	$tenencia = isset($_POST["tenencia"])? limpiarCadena($_POST["tenencia"]): "";
 	$construccion = isset($_POST["construccion"])? limpiarCadena($_POST["construccion"]): "";
 	$tipo_piso = isset($_POST["tipo_piso"])? limpiarCadena($_POST["tipo_piso"]): "";
+	$observacion = isset($_POST["observacion"])? limpiarCadena($_POST["observacion"]): "";
 
 		//Beneficiario
-	$id_persona = isset($_POST["id_persona"])? limpiarCadena($_POST["id_persona"]): "";
+	$id_beneficiario = isset($_POST["id_beneficiario"])? limpiarCadena($_POST["id_beneficiario"]): "";
 	$cedula_b = isset($_POST["cedula_b"])? limpiarCadena($_POST["cedula_b"]): "";
 	$nombre_apellido_b = isset($_POST["nombre_apellido_b"])? limpiarCadena($_POST["nombre_apellido_b"]): "";
 	$fecha_nacimiento_b = isset($_POST["fecha_nacimiento_b"])? limpiarCadena($_POST["fecha_nacimiento_b"]): "";
-	$parentesco_b = isset($_POST["parentesco_b"])? limpiarCadena($_POST["parentesco_b"]): "";
-	$semana_embarazo_b = isset($_POST["semana_embarazo_b"])? limpiarCadena($_POST["semana_embarazo_b"]): "";
+	$parentesco = isset($_POST["parentesco"])? limpiarCadena($_POST["parentesco"]): "";
+	$semana_embarazo = isset($_POST["semana_embarazo"])? limpiarCadena($_POST["semana_embarazo"]): "";
 	$talla_zapato = isset($_POST["talla_zapato"])? limpiarCadena($_POST["talla_zapato"]): "";
 	$talla_pantalon = isset($_POST["talla_pantalon"])? limpiarCadena($_POST["talla_pantalon"]): "";
 	$talla_franela = isset($_POST["talla_franela"])? limpiarCadena($_POST["talla_franela"]): "";
 	
-	$id_usuario = $_SESSION["id_usuario"];
+	
 
 	switch ($_GET["op"]) { // según la opción "op" enviado por el AJAX se procede a comparar
 
 		case 'guardaryeditar':
 				//Verificamos si ambos ID esta vació
-			if (empty($id_solicitante) && empty($id_persona)) { //si el ID esta vació guardamos un nuevo registro
+			if (empty($id_solicitante) && empty($id_beneficiario)) { //si el ID esta vació guardamos un nuevo registro
 					//Si no existe el solicitante y el beneficiario, ambos se agrega
-				$rspta = $informe_social->insertar($cedula,$nombre_apellido,$fecha_nacimiento,$sexo,$direccion,$telefono_1,$telefono_2,$email,$parroquia,$estado_civil,$ocupacion,$esterilizada,$beneficio_gubernamental,$num_hijo,$ingreso,$cedula_b,$nombre_apellido_b,$fecha_nacimiento_b,$parentesco_b,$semana_embarazo_b,$talla_zapato,$talla_pantalon,$talla_franela,$id_tipo_solicitud,$medio_informacion,$fecha,$tipo_vivienda,$tenencia,$construccion,$tipo_piso,$id_usuario,$_POST["id_familiar"],$_POST["nombre_apellido_f"],$_POST["fecha_nacimiento_f"],$_POST["parentesco_f"],$_POST["ocupacion_f"],$_POST["ingreso_f"],$_POST["peso_f"],$_POST["talla_f"]);
+				$rspta = $informe_social->insertar($cedula,$nombre_apellido,$fecha_nacimiento,$sexo,$direccion,$telefono_1,$telefono_2,$email,$parroquia,$estado_civil,$ocupacion,$esterilizada,$beneficio_gubernamental,$num_hijo,$ingreso,$cedula_b,$nombre_apellido_b,$fecha_nacimiento_b,$parentesco,$semana_embarazo,$talla_zapato,$talla_pantalon,$talla_franela,$id_tipo_solicitud,$id_usuario,$fecha,$medio_informacion,$tipo_vivienda,$tenencia,$construccion,$tipo_piso,$observacion,$_POST["id_familiar"],$_POST["nombre_apellido_f"],$_POST["fecha_nacimiento_f"],$_POST["parentesco_f"],$_POST["ocupacion_f"],$_POST["ingreso_f"],$_POST["peso_f"],$_POST["talla_f"]);
 					//Dependiendo de la inserción, la variable "repta" puede ser True o false
 				echo $rspta ? "La Solicitud a sido Registrado Correctamente" : "No se pudo Registrar Todo los campos de la Solicitud";
 
 				//Verificamos si uno de los ID esta vació
-			}else if (empty($id_persona) && !empty($id_solicitante)){
+			}else if (empty($id_beneficiario) && !empty($id_solicitante)){
 				// Se actualiza el Solicitante cuando este existe en la base de datos pero no el beneficiario
-				$rspta = $informe_social->editars($id_solicitante,$cedula,$nombre_apellido,$fecha_nacimiento,$sexo,$direccion,$telefono_1,$telefono_2,$email,$parroquia,$estado_civil,$ocupacion,$esterilizada,$beneficio_gubernamental,$num_hijo,$ingreso,$cedula_b,$nombre_apellido_b,$fecha_nacimiento_b,$parentesco_b,$semana_embarazo_b,$talla_zapato,$talla_pantalon,$talla_franela,$id_tipo_solicitud,$medio_informacion,$fecha,$tipo_vivienda,$tenencia,$construccion,$tipo_piso,$id_usuario,$_POST["id_familiar"],$_POST["nombre_apellido_f"],$_POST["fecha_nacimiento_f"],$_POST["parentesco_f"],$_POST["ocupacion_f"],$_POST["ingreso_f"],$_POST["peso_f"],$_POST["talla_f"]);
+				$rspta = $informe_social->editars($id_solicitante,$cedula,$nombre_apellido,$fecha_nacimiento,$sexo,$direccion,$telefono_1,$telefono_2,$email,$parroquia,$estado_civil,$ocupacion,$esterilizada,$beneficio_gubernamental,$num_hijo,$ingreso,$cedula_b,$nombre_apellido_b,$fecha_nacimiento_b,$parentesco,$semana_embarazo,$talla_zapato,$talla_pantalon,$talla_franela,$id_tipo_solicitud,$id_usuario,$fecha,$medio_informacion,$tipo_vivienda,$tenencia,$construccion,$tipo_piso,$observacion,$_POST["id_familiar"],$_POST["nombre_apellido_f"],$_POST["fecha_nacimiento_f"],$_POST["parentesco_f"],$_POST["ocupacion_f"],$_POST["ingreso_f"],$_POST["peso_f"],$_POST["talla_f"]);
 					//Dependiendo de la inserción, la variable "repta" puede ser True o false
 				echo $rspta ? "La Solicitud a sido Registrado Correctamente y Actualizado el Solicitante" : "No se pudo Registrar Todo los campos de la Solicitud";
 
 				//Verificamos si uno de los ID esta vació
-			}else if (!empty($id_persona) && empty($id_solicitante)){
+			}else if (!empty($id_beneficiario) && empty($id_solicitante)){
 				// Cuando existe el beneficiario pero no el Solicitante
-				$rspta = $informe_social->editarb($cedula,$nombre_apellido,$fecha_nacimiento,$sexo,$direccion,$telefono_1,$telefono_2,$email,$parroquia,$estado_civil,$ocupacion,$esterilizada,$beneficio_gubernamental,$num_hijo,$ingreso,$id_persona,$cedula_b,$nombre_apellido_b,$fecha_nacimiento_b,$parentesco_b,$semana_embarazo_b,$talla_zapato,$talla_pantalon,$talla_franela,$id_tipo_solicitud,$medio_informacion,$fecha,$tipo_vivienda,$tenencia,$construccion,$tipo_piso,$id_usuario,$_POST["id_familiar"],$_POST["nombre_apellido_f"],$_POST["fecha_nacimiento_f"],$_POST["parentesco_f"],$_POST["ocupacion_f"],$_POST["ingreso_f"],$_POST["peso_f"],$_POST["talla_f"]);
+				$rspta = $informe_social->editarb($cedula,$nombre_apellido,$fecha_nacimiento,$sexo,$direccion,$telefono_1,$telefono_2,$email,$parroquia,$estado_civil,$ocupacion,$esterilizada,$beneficio_gubernamental,$num_hijo,$ingreso,$id_beneficiario,$cedula_b,$nombre_apellido_b,$fecha_nacimiento_b,$parentesco,$semana_embarazo,$talla_zapato,$talla_pantalon,$talla_franela,$id_tipo_solicitud,$id_usuario,$fecha,$medio_informacion,$tipo_vivienda,$tenencia,$construccion,$tipo_piso,$observacion,$_POST["id_familiar"],$_POST["nombre_apellido_f"],$_POST["fecha_nacimiento_f"],$_POST["parentesco_f"],$_POST["ocupacion_f"],$_POST["ingreso_f"],$_POST["peso_f"],$_POST["talla_f"]);
 					//Dependiendo de la inserción, la variable "repta" puede ser True o false
 				echo $rspta ? "La Solicitud a sido Registrado Correctamente y Actualizado el Beneficiario" : "No se pudo Registrar Todo los campos de la Solicitud";
 
 			}else {
 				//Cundo El beneficiario y el Solicitante Existe en el Sistema
-				$rspta = $informe_social->insertarbs($id_solicitante,$cedula,$nombre_apellido,$fecha_nacimiento,$sexo,$direccion,$telefono_1,$telefono_2,$email,$parroquia,$estado_civil,$ocupacion,$esterilizada,$beneficio_gubernamental,$num_hijo,$ingreso,$id_persona,$cedula_b,$nombre_apellido_b,$fecha_nacimiento_b,$parentesco_b,$semana_embarazo_b,$talla_zapato,$talla_pantalon,$talla_franela,$id_tipo_solicitud,$medio_informacion,$fecha,$tipo_vivienda,$tenencia,$construccion,$tipo_piso,$id_usuario,$_POST["id_familiar"],$_POST["nombre_apellido_f"],$_POST["fecha_nacimiento_f"],$_POST["parentesco_f"],$_POST["ocupacion_f"],$_POST["ingreso_f"],$_POST["peso_f"],$_POST["talla_f"]);
+				$rspta = $informe_social->insertarbs($id_solicitante,$cedula,$nombre_apellido,$fecha_nacimiento,$sexo,$direccion,$telefono_1,$telefono_2,$email,$parroquia,$estado_civil,$ocupacion,$esterilizada,$beneficio_gubernamental,$num_hijo,$ingreso,$id_beneficiario,$cedula_b,$nombre_apellido_b,$fecha_nacimiento_b,$parentesco,$semana_embarazo,$talla_zapato,$talla_pantalon,$talla_franela,$id_tipo_solicitud,$id_usuario,$fecha,$medio_informacion,$tipo_vivienda,$tenencia,$construccion,$tipo_piso,$observacion,$_POST["id_familiar"],$_POST["nombre_apellido_f"],$_POST["fecha_nacimiento_f"],$_POST["parentesco_f"],$_POST["ocupacion_f"],$_POST["ingreso_f"],$_POST["peso_f"],$_POST["talla_f"]);
 					//Dependiendo de la inserción, la variable "repta" puede ser True o false
 				echo $rspta ? "La Solicitud a sido Registrado Correctamente y Actualizado el Solicitante y el Beneficiario" : "No se pudo Registrar Todo los campos de la Solicitud";
 			}
