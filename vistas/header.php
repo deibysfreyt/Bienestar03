@@ -28,10 +28,6 @@
     <link rel="stylesheet" href="../public/datatables/jquery.dataTables.min.css">
     <link rel="stylesheet" href="../public/datatables/buttons.dataTables.min.css">
     <link rel="stylesheet" href="../public/datatables/responsive.dataTables.min.css">
-
-      <!-- Google Font 
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> -->
-    <link rel="stylesheet" href="../public/font/family.css">
   
       <!-- css del Bootstrap Select de las tablas relacionada -->
     <link rel="stylesheet" href="../public/css/bootstrap-select.css">
@@ -89,13 +85,14 @@
               			if ($_SESSION['Gestion de Usuario']==1){
                 			echo '<li class="treeview">
                         			<a href="">
-                          			<i class="fa fa-users"></i> <span>Gestión de Usuario</span>
+                          			<i class="fa fa-users"></i> <span>Administrador</span>
                           			<i class="fa fa-angle-left pull-right"></i>
                         			</a>
                         			<ul class="treeview-menu">
-                          			<li><a href="consultas_sistema.php"><i class="fa fa-circle-o"></i> Historial de Usuario</a></li>
+                          			<li><a href="consultas_sistema.php"><i class="fa fa-circle-o"></i> Bitacora de Usuario</a></li>
                           			<li><a href="usuario.php"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-                          			<li><a href="permiso.php"><i class="fa fa-circle-o"></i>Permisos</a></li>    
+                          			<li><a href="tipo_solicitud.php"><i class="fa fa-circle-o"></i>Categorias de Solicitud</a></li>
+                          			<li><a href="permiso.php"><i class="fa fa-circle-o"></i> Tipos de Permisos</a></li>
                         			</ul>
                       			</li>';
               			}
@@ -105,7 +102,7 @@
                 			echo '<li>                      
                         			<a href="informe_social.php">
                           			<i class="fa fa-slideshare"></i>
-                          			<span>Solicitantes</span>                          
+                          			<span>Solicitudes</span>                          
                         			</a>                        
                       			</li>';
               			}
@@ -114,13 +111,12 @@
               			if ($_SESSION['Gestion de Solicitud']==1){
                 			echo '<li class="treeview">
                         			<a href="">
-                          			<i class="fa fa-pencil-square-o"></i> <span>Gestión de Solicitud</span>
+                          			<i class="fa fa-pencil-square-o"></i> <span>Gestión de Consulta</span>
                           			<i class="fa fa-angle-left pull-right"></i>
                         			</a>
                         			<ul class="treeview-menu">
-                          			<li><a href="consultas_solicitud.php"><i class="fa fa-circle-o"></i> Consultas por Fechas</a></li>
-                          			<li><a href="visita_social.php"><i class="fa fa-circle-o"></i> Visita Social</a></li>
-                          			<li><a href="tipo_solicitud.php"><i class="fa fa-circle-o"></i>Solicitudes</a></li>   
+                          			<li><a href="consultas_solicitud.php"><i class="fa fa-circle-o"></i> Solicitud por Fechas</a></li>
+                                  
                         			</ul>
                       			</li>';
               			}

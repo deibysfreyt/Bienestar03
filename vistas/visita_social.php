@@ -95,8 +95,7 @@
        //Aquí llamamos al pie de la pagina
     require_once("footer.php");
 ?>
-    <!-- Aquí llamamos a los Script de Validación del Formulario  -->
-  <script type="text/javascript" src="scripts/validacionV.js"></script>
+
     <!-- Aquí llamamos a los Script que controla toda la pagina  -->
   <script type="text/javascript" src="scripts/visita_social.js"></script>
 <?php 

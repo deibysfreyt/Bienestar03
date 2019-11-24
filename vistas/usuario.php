@@ -78,18 +78,18 @@
             </div>
             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <label>Teléfono:</label>
-              <input type="text" class="form-control" name="telefono" id="telefono" maxlength="12" placeholder="Teléfono" placeholder="0416-1234455" required>
+              <input type="text" class="form-control" name="telefono" id="telefono" maxlength="11" placeholder="Teléfono" placeholder="04161234455">
             </div>
             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <label>Email:</label>
               <input type="email" class="form-control" name="email" id="email" maxlength="30" placeholder="ejemplo@dominio.com">
             </div>
             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <label>Cargo(*):</label>
-              <input type="text" class="form-control" name="cargo" id="cargo" maxlength="20" placeholder="Cargo" required>
+              <label>Cargo:</label>
+              <input type="text" class="form-control" name="cargo" id="cargo" maxlength="20" placeholder="Cargo">
             </div>
             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <label>Login (*):</label>
+              <label>Usuario (*):</label>
               <input type="text" class="form-control" name="login" id="login" maxlength="20" placeholder="Login" required>
             </div>
             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -103,14 +103,14 @@
               </ul>
             </div>
             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <label>Imagen(*):</label>
-              <input type="file" class="form-control" name="imagen" id="imagen" required>
+              <label>Imagen:</label>
+              <input type="file" class="form-control" name="imagen" id="imagen">
               <input type="hidden" name="imagenactual" id="imagenactual">
               <img src="" width="150px" height="120px" id="imagenmuestra">
             </div>
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">          
               <button class="btn btn-danger" onclick="cancelarform()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
-              <button class="btn btn-primary" type="submit" id="btnGuardar" onmouseover="validacionU()"><i class="fa fa-save"></i> Guardar</button>    
+              <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>    
             </div>
           </form>
         </div>
@@ -125,8 +125,7 @@
       //Aquí llamamos al pie de la pagina
     require_once("footer.php");
 ?>
-    <!-- Aquí llamamos a los Script de Validación del Formulario  -->
-  <script type="text/javascript" src="scripts/validacionU.js"></script>
+
     <!-- Aquí llamamos a los Script que controla toda la pagina  -->
   <script type="text/javascript" src="scripts/usuario.js"></script>
 <?php 

@@ -19,7 +19,7 @@ function init(){
 	var now = new Date();
 	var day = ("0" + now.getDate()).slice(-2);
 	var month = ("0" + (now.getMonth() + 1)).slice(-2);
-	var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+	var today = now.getFullYear()+"-"+(month)+"-"+(day);
     $('#fecha_actual').val(today);
  
 }
@@ -31,38 +31,37 @@ function limpiar(){
 	$("#id_solicitante").val("");
 	$("#cedula").val("");
 	$("#nombre_apellido").val("");
-	$("#sexo").val("");
+	$('#fecha_nacimiento').val("");
 	$("#direccion").val("");
 	$("#telefono_1").val("");
 	$("#telefono_2").val("");
-	$("#email").val("");
 	$("#parroquia").val("");
-	$("#estado_civil").val("");
 	$("#ocupacion").val("");
-	$("#esterilizada").val("");
-	$("#beneficio_gubernamental").val("");
-	$("#num_hijo").val("");
 	$("#ingreso").val("");
+	$("#estado_civil").val("");
+	$("#edad_s").val("");
 
 	//Beneficiario
 	$("#id_beneficiario").val("");
 	$("#cedula_b").val("");
 	$("#nombre_apellido_b").val("");
-	$("#parentesco").val("");
+	$('#fecha_nacimiento_b').val("");
 	$("#semana_embarazo").val("");
-	$("#talla_zapato").val("");
-	$("#talla_pantalon").val("");
-	$("#talla_franela").val("");
+	$("#edad_b").val("");
+	$("#estado").val("");
+
+	$("#id_tipo_solicitud").val("");
 
 	//Solicitud
 	$("#id_solicitud").val("");
-	$("#id_tipo_solicitud").val("");
-	$("#medio_informacion").val("");
 	$("#tipo_vivienda").val("");
 	$("#tenencia").val("");
 	$("#construccion").val("");
 	$("#tipo_piso").val("");
+	$("#diagnostico").val("");
 	$("#observacion").val("");
+	$("#recaudos").val("");
+
 
 	//removemos las filas de los familiares
 	$(".filas").remove();
@@ -72,8 +71,7 @@ function limpiar(){
 	var day = ("0" + now.getDate()).slice(-2);
 	var month = ("0" + (now.getMonth() + 1)).slice(-2);
 	var today = now.getFullYear()+"-"+(month)+"-"+(day);
-	$('#fecha_nacimiento').val(today);
-	$('#fecha_nacimiento_b').val(today);
+	
     $('#fecha').val(today);
 
 }
@@ -95,8 +93,9 @@ function mostrarform(flag){
 
 //Funcion para cancelar el Formulario
 function cancelarform(){
-	limpiar();
-	mostrarform(false);
+	$(location).attr("href","informe_social.php");
+	//limpiar();
+	//mostrarform(false);
 }
 
 //funcion listar
@@ -149,46 +148,31 @@ function mostrart(id_solicitud){
 	$.post("../ajax/informe_social.php?op=mostrar",{id_solicitud : id_solicitud}, function(data, status)
 	{
 		data = JSON.parse(data);
-		//mostrarform(true);
+		mostrarform(true);
 
 		//Devuelvo los datos del Solicitante
 		$("#id_solicitante").val(data.id_solicitante);
 		$("#cedula").val(data.cedula);
 		$("#nombre_apellido").val(data.nombre_apellido);
+		$("#edad_s").val(data.edad_s);
 		$("#fecha_nacimiento").val(data.fecha_nacimiento);
-		$("#sexo").val(data.sexo);
-		$("#sexo").selectpicker('refresh');
 		$("#direccion").val(data.direccion);
 		$("#telefono_1").val(data.telefono_1);
 		$("#telefono_2").val(data.telefono_2);
-		$("#email").val(data.email);
 		$("#parroquia").val(data.parroquia);
 		$("#parroquia").selectpicker('refresh');
+		$("#ocupacion").val(data.ocupacion);
+		$("#ingreso").val(data.ingreso);
 		$("#estado_civil").val(data.estado_civil);
 		$("#estado_civil").selectpicker('refresh');
-		$("#ocupacion").val(data.ocupacion);
-		$("#esterilizada").val(data.esterilizada);
-		$("#esterilizada").selectpicker('refresh');
-		$("#beneficio_gubernamental").val(data.beneficio_gubernamental);
-		$("#num_hijo").val(data.num_hijo);
-		$("#num_hijo").selectpicker('refresh');
-		$("#ingreso").val(data.ingreso);
 		
 		//Devuelvo los datos del Beneficiario
 		$("#id_beneficiario").val(data.id_beneficiario); 
 		$("#cedula_b").val(data.cedula_b);
 		$("#nombre_apellido_b").val(data.nombre_apellido_b);
+		$("#edad_b").val(data.edad_b);
 		$("#fecha_nacimiento_b").val(data.fecha_nacimiento_b);
-		$("#parentesco").val(data.parentesco);
-		$('#parentesco').selectpicker('refresh');
 		$("#semana_embarazo").val(data.semana_embarazo);
-		$('#semana_embarazo').selectpicker('refresh');
-		$("#talla_zapato").val(data.talla_zapato);
-		$('#talla_zapato').selectpicker('refresh');
-		$("#talla_pantalon").val(data.talla_pantalon);
-		$('#talla_pantalon').selectpicker('refresh');
-		$("#talla_franela").val(data.talla_franela);
-		$('#talla_franela').selectpicker('refresh');
 		
 	})
 }
@@ -205,56 +189,20 @@ function mostrars(id_solicitud){
 		$("#id_solicitante").val(data.id_solicitante);
 		$("#cedula").val(data.cedula);
 		$("#nombre_apellido").val(data.nombre_apellido);
+		$("#edad_s").val(data.edad_s);
 		$("#fecha_nacimiento").val(data.fecha_nacimiento);
-		$("#sexo").val(data.sexo);
-		$("#sexo").selectpicker('refresh');
 		$("#direccion").val(data.direccion);
 		$("#telefono_1").val(data.telefono_1);
 		$("#telefono_2").val(data.telefono_2);
-		$("#email").val(data.email);
 		$("#parroquia").val(data.parroquia);
 		$("#parroquia").selectpicker('refresh');
+		$("#ocupacion").val(data.ocupacion);
+		$("#ingreso").val(data.ingreso);
 		$("#estado_civil").val(data.estado_civil);
 		$("#estado_civil").selectpicker('refresh');
-		$("#ocupacion").val(data.ocupacion);
-		$("#esterilizada").val(data.esterilizada);
-		$("#esterilizada").selectpicker('refresh');
-		$("#beneficio_gubernamental").val(data.beneficio_gubernamental);
-		$("#num_hijo").val(data.num_hijo);
-		$("#num_hijo").selectpicker('refresh');
-		$("#ingreso").val(data.ingreso);
 		
 	})
 }
-
-
-function mostrarb(id_solicitud){
-	//mostrars(id_solicitante);
-	//mostrarb(id_solicitud);
-	$.post("../ajax/informe_social.php?op=mostrar",{id_solicitud : id_solicitud}, function(data, status)
-	{
-		data = JSON.parse(data);
-		mostrarform(true);
-		
-		//Devuelvo los datos del Beneficiario
-		$("#id_beneficiario").val(data.id_beneficiario);
-		$("#cedula_b").val(data.cedula_p);
-		$("#nombre_apellido_b").val(data.nombre_apellido_p);
-		$("#fecha_nacimiento_b").val(data.fecha_nacimiento_p);
-		$("#parentesco").val(data.parentesco);
-		$('#parentesco').selectpicker('refresh');
-		$("#semana_embarazo").val(data.semana_embarazo);
-		$('#semana_embarazo').selectpicker('refresh');
-		$("#talla_zapato").val(data.talla_zapato);
-		$('#talla_zapato').selectpicker('refresh');
-		$("#talla_pantalon").val(data.talla_pantalon);
-		$('#talla_pantalon').selectpicker('refresh');
-		$("#talla_franela").val(data.talla_franela);
-		$('#talla_franela').selectpicker('refresh');
-		
-	})
-}
-
 
 //Función para desactivar registros
 function aceptar(id_solicitud)
@@ -278,12 +226,10 @@ function agregarDetalle()
     	var fila='<tr class="filas" id="fila'+cont+'">'+
     	'<td><button type="button" class="btn btn-danger" onclick="eliminarDetalle('+cont+')">X</button></td>'+
     	'<td><input class="form-control" type="text" name="nombre_apellido_f[]" id="nombre_apellido_f[]" placeholder="Nombre y Apellido" maxlength="30"></td>'+
-    	'<td><input class="form-control" type="Date" name="fecha_nacimiento_f[]" id="fecha_nacimiento_f[]"></td>'+
+    	'<td><input class="form-control" type="text" name="edad_f[]" id="edad_f[]" maxlength="2" placeholder="xx"></td>'+
     	'<td><input class="form-control" type="text" name="parentesco_f[]" id="parentesco_f[]" placeholder="Parentesco" maxlength="10"></td>'+
     	'<td><input class="form-control" type="text" name="ocupacion_f[]" id="ocupacion_f[]" placeholder="A que se dedica" maxlength="50"></td>'+
-    	'<td><input class="form-control" type="text" name="ingreso_f[]" id="ingreso_f[]" placeholder="Ingreso Monetario" maxlength="7"></td>'+
-    	'<td><input class="form-control" type="text" name="peso_f[]" id="peso_f[]" placeholder="Peso Kg" maxlength="6"></td>'+
-    	'<td><input class="form-control" type="text" name="talla_f[]" id="talla_f[]" placeholder="Medida de Altura" maxlength="3"></td>'+
+    	'<td><input class="form-control" type="text" name="observacion_f[]" id="observacion_f[]" placeholder="Observacion" maxlength="45"></td>'+
     	'<td><input type="hidden" name="id_familiar[]" id="id_familiar[] value="'+cont+'"></td>'+
     	'</tr>';
     	cont++;

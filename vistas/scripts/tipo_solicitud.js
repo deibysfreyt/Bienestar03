@@ -21,7 +21,7 @@ function init(){
 function limpiar()
 {
 	$("#id_tipo_solicitud").val("");
-	$("#tipo_solicitud").val("");
+	$("#solicitud").val("");
 	$("#descripcion").val("");
 }
 
@@ -107,8 +107,7 @@ function mostrar(id_tipo_solicitud){
 		data = JSON.parse(data); //Convierto los datos que recibo en objeto JavaScrip	
 		mostrarform(true); //Mostramos el formulario flag = true
 			//Busco los objeto cuyo ID y le enviamos el nuevo objeto
-		$("#tipo_solicitud").val(data.tipo_solicitud); 
-		$("#tipo_solicitud").selectpicker('refresh');
+		$("#solicitud").val(data.solicitud);
 		$("#descripcion").val(data.descripcion);
  		$("#id_tipo_solicitud").val(data.id_tipo_solicitud);
 

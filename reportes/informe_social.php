@@ -13,8 +13,11 @@
 <head>
 	<title>Informe Social</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="reporte.css">
+	<link rel="stylesheet" href="../public/bootstrap/dist/css/bootstrap.min.css">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 </head>
-<body onload="window.print();">
+<body>
 	<?php 
 		//Incluímos la clase Venta
 		require_once "../modelos/modelo_consultas.php";
@@ -26,150 +29,267 @@
 		$reg = $rspta->fetchObject();
 
 	 ?>
-	<table border="0px" style="margin: auto;">
-		<tr align="center">
-			<td><img src="../public/css/imagenes/Logo_Alcaldia.png" alt="Logo_alcaldia" style="height: 50px"></td>
-			<td colspan="2">
-				<h5>
-					<strong>REPÚBLICA BOLIVARIANA DE VENEZUELA</strong><br>
-					<strong>ALCALDIA DEL MINICIPIO IRIBARREN</strong><br>
-					<strong>FUNDACIÓN DEL NIÑO MUNICIPIO IRIBARREN</strong><br>
-					<strong>BARQUISIMETO - ESTADO LARA</strong><br>
-					<strong>RIF: G-20006105-7</strong>
-				</h5>
-			</td>
-			<td><img src="../public/css/imagenes/fondo.png" alt="Logo_fundacion" style="height: 50px"></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td style="font-size: 15spx">N° Control: <u><?php echo $reg->id_solicitud; ?></u></td>
-			<td></td>
-			<td></td>
-			<td align="right" style="font-size: 15spx">Fecha: <u><?php echo $reg->fecha; ?></u></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td colspan="4" align="center"><strong style="font-size: 15px"><u><h5>INFORME SOCIAL</h5></u></strong></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td colspan="4"><h3><strong style="font-size: 15px">Datos del Solicitante</strong></h3></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td><p style="font-size: 12px">Nombre y Apellido: <u><?php echo $reg->solicitante; ?></u>,</p></td>
-			<td><p style="font-size: 12px">.CI.: <u><?php echo $reg->cedula_s; ?></u>,</p></td>
-			<td><p style="font-size: 12px">Fecha de Nacimiento: <u><?php echo $reg->fecha_s; ?></u>,</p></td>
-			<td><p style="font-size: 12px">Estado Civil: <u><?php echo $reg->estado_civil; ?></u>,</p></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td><p style="font-size: 12px">N° de Hijos: <u><?php echo $reg->num_hijo; ?></u>,</p></td>
-			<td><p style="font-size: 12px">Correo: <u><?php echo $reg->email; ?></u>,</p></td>		
-			<td><p style="font-size: 12px">Parroquia: <u><?php echo $reg->parroquia; ?></u>,</p></td>
-			<td><p style="font-size: 12px">Ocupación: <u><?php echo $reg->ocupacion; ?></u>,</p></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td><p style="font-size: 12px">Ingreso: <u><?php echo $reg->ingreso; ?>Bs</u>,</p></td>
-			<td colspan="2"><p style="font-size: 12px">Dirección de Habitación: <u><?php echo $reg->direccion; ?></u>,</p></td>
-			<td><p style="font-size: 12px">Teléfono Principal: <u><?php echo $reg->telefono_1; ?></u>,</p></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td><p style="font-size: 12px">Teléfono Secundario: <u><?php echo $reg->telefono_2; ?></u>,</p></td>
-			<td><p style="font-size: 12px">Esterilizada: <u><?php echo $reg->esterilizada; ?></u>,</p></td>
-					
-			<td colspan="2"><p style="font-size: 12px">Beneficio Gubernamental: <u><?php echo $reg->beneficio_gubernamental; ?></u>.</p></td>		
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td colspan="4"><h3><strong style="font-size: 15px">Datos del Beneficiario</strong></h3></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td><p style="font-size: 12px">Nombre y Apellido: <u><?php echo $reg->beneficiario; ?></u>,</p></td>
-			<td><p style="font-size: 12px">.CI.: <u><?php echo $reg->cedula_p; ?></u>,</p></td>
-			<td><p style="font-size: 12px">Fecha de Nacimiento: <u><?php echo $reg->fecha_p; ?></u>,</p></td>
-			<td><p style="font-size: 12px">Parentesco: <u><?php echo $reg->parentesco; ?></u>.</p></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td colspan="3"><p style="font-size: 12px">Motivo de la Solicitud: <u><?php echo $reg->solicitud.' - '.$reg->descripcion; ?></u>,</p></td>
-			<td><p style="font-size: 12px">Semana de Embarazo: <u><?php echo $reg->semana_embarazo; ?></u>.</p></td>
-		</tr>
-		<tr>
-			<td><p style="font-size: 12px">Talla de Zapato: <u><?php echo $reg->talla_zapato; ?></u>.</p></td>
-			<td><p style="font-size: 12px">Talla de Pantalón: <u><?php echo $reg->talla_pantalon; ?></u>.</p></td>
-			<td><p style="font-size: 12px">Talla de Franela: <u><?php echo $reg->talla_franela; ?></u>.</p></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td colspan="4"><h3><strong style="font-size: 15px">Área Física Ambiental</strong></h3></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td><p style="font-size: 12px">Tipo de vivienda: <u><?php echo $reg->tipo_vivienda; ?></u>,</p></td>
-			<td><p style="font-size: 12px">Tenencia: <u><?php echo $reg->tenencia; ?></u>,</p></td>
-			<td><p style="font-size: 12px">Construcción: <u><?php echo $reg->construccion; ?></u>,</p></td>
-			<td><p style="font-size: 12px">Tipo de Piso: <u><?php echo $reg->tipo_piso; ?></u>,</p></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr>
-			<td colspan="4"><br></td>
-		</tr>
-		<tr align="center">
-			<td colspan="2">_____________________________</td>
-			<td colspan="2">_____________________________</td>
-		</tr>
-		<tr align="center">
-			<td colspan="2" style="font-size: 12px"><strong>Gerente de Bienestar Social</strong></td>
-			<td colspan="2" style="font-size: 12px"><strong>Presidencia</strong></td>
-		</tr>
-	</table>
+	<div class="modelo" id="contenedor">
+		<div class="izquierda">
+			<table class="b">
+				<tr style="text-align: center;">
+					<td><img src="../public/css/imagenes/Logo_Alcaldia.png" alt="Logo_alcaldia" style="height: 50px;"></td>
+					<td>
+						<h6>
+							<strong>REPÚBLICA BOLIVARIANA DE VENEZUELA</strong><br>
+							<strong>ALCALDIA DEL MINICIPIO IRIBARREN</strong><br>
+							<strong>FUNDACIÓN DEL NIÑO MUNICIPIO IRIBARREN</strong><br>
+							<strong>BARQUISIMETO - ESTADO LARA</strong><br>
+						</h6>
+					</td>
+					<td><img src="../public/css/imagenes/fondo.png" alt="Logo_fundacion" style="height: 60px; margin: auto;"></td>
+				</tr>
+				<tr>
+					<td colspan="3">.</td>					
+				</tr>
+				<tr>
+					<td colspan="3">
+						<b>F. DE SOLICITUD: </b> <?php echo $reg->fecha; ?>
+						&nbsp;
+						&nbsp;
+						&nbsp;
+						&nbsp;
+						&nbsp;
+						&nbsp;
+						&nbsp;
+						&nbsp;
+						<b>BARQUISIMETO:</b>
+						<input type="text" name="fecha_actual" style="border: 0px;" id="fecha_actual" readonly=”readonly”>
+					</td>
+				</tr>
+			</table>
+			<h5 style="text-align: center;"><u><strong>INFORME SOCIAL</strong></u></h5>
+			<table class="bo">
+				<tr>
+					<td><b>SOLICITANTE: </b></td>
+					<td> &nbsp;<?php echo $reg->solicitante; ?></td>
+					<td colspan="2"><b>N° CEDULA: </b><?php echo $reg->cedula_s; ?></td>
+				</tr>
+				<tr>
+					<td><b>F. DE NAC: </b></td>
+					<td>&nbsp;<?php echo $reg->fecha_s; ?></td>
+					<td colspan="2"><b>EDAD: </b><?php echo $reg->edad_s; ?></td>
+				</tr>
+				<tr>
+					<td><b>ESTADO CIVIL: </b></td>
+					<td>&nbsp;<?php echo $reg->estado_civil; ?></td>
+					<td colspan="2"><b>PARROQUIA: </b><?php echo $reg->parroquia; ?></td>
+				</tr>
+				<tr>
+					<td colspan="4"><b>DIRECCIÓN: </b><?php echo $reg->direccion; ?></td>
+				</tr>
+				<tr>
+					<td><b>TLF. CELULAR: </b></td>
+					<td>&nbsp;<?php echo $reg->telefono_1; ?></td>
+					<td colspan="2"><b>TLF FIJO: </b><?php echo $reg->telefono_2; ?></td>
+				</tr>
+				<tr>
+					<td><b>OCUPACIÓN: </b></td>
+					<td>&nbsp;<?php echo $reg->ocupacion; ?></td>
+					<td colspan="2"><b>INGRESOS: </b><?php echo $reg->ingreso; ?><b>Bs</b></td>
+				</tr>
+			</table>
+			<h5>.</h5>
+			<h5 style="text-align: center;"><u><strong>DATOS DEL BENEFICIARIO</strong></u></h5>
+			<table class="bo">
+				<tr>
+					<td><b>BENEFICIARIO:</b></td>
+					<td>&nbsp;<?php echo $reg->beneficiario; ?></td>
+					<td colspan="2"><b>N° CEDULA: </b><?php echo $reg->cedula_b; ?></td>
+				</tr>
+				<tr>
+					<td><b>F. DE NAC: </b></td>
+					<td>&nbsp;<?php echo $reg->fecha_b; ?></td>
+					<td colspan="2"><b>EDAD: </b><?php echo $reg->edad_b; ?></td>
+				</tr>
+				<tr>
+					<td><b>SOLICITUD: </b></td>
+					<td>&nbsp;<?php echo $reg->solicitud.' - '.$reg->descripcion; ?></td>
+					<td colspan="2"><b>S. DE EMBA: </b><?php echo $reg->semana_embarazo; ?></td>
+				</tr>
+			</table>
+			<h5>.</h5>
+			<h5 style="text-align: center;"><u><strong>ÁREA FISICA AMBIENTAL</u></strong></h5>
+			<table class="bor" id="este">
+				<tr>
+					<td><b>T. DE VIVIENDA</b></td>
+					<td><b>TENENCIA</b></td>
+					<td><b>CONSTRUCCIÓN</b></td>
+					<td><b>TIPO DE PISO</b></td>
+				</tr>
+				<tr>
+					<td><?php echo $reg->tipo_vivienda; ?></td>
+					<td><?php echo $reg->tenencia; ?></td>
+					<td><?php echo $reg->construccion; ?></td>
+					<td><?php echo $reg->tipo_piso; ?></td>
+				</tr>
+			</table>
+			<h5>.</h5>
+			<h5 style="text-align: center;"><u><strong>NUCLEO FAMILIAR</u></strong></h5>
+		    <table id="detalles" class="borfami">
+		      <thead>
+		        <th><b>N°</b></th>
+		        <th><b>NOMBRE Y APELLIDO</b></th>
+		        <th><b>EDAD</b></th>
+		        <th><b>PARENTESCO</b></th>
+		        <th><b>OCUPACÍON</b></th>
+		        <th><b>OBSERVACÍO</b></th>
+		      </thead>
+		      <tbody>
+		                                  
+		      </tbody>
+		      <tfoot>
+		        <th></th>
+		        <th></th>
+		        <th></th>
+		        <th></th>
+		        <th></th>
+		        <th></th> 
+		      </tfoot>                      
+		    </table>
+		</div>
+		<div class="derecha">
+			<h5 style="text-align: center;"><u><strong>ÁREA MÉDICO ASISTENCIAL</u></strong></h5>
+			<table class="bor3">
+				<tr>
+					<td>	</td>
+					<td>	</td>
+				</tr>
+				<tr>
+					<td><b>DIAGNÓSTICO:</b></td>
+					<td>
+						<?php if ( isset($reg->diagnostico) ) {echo "___<u>".$reg->diagnostico."<u/>___";}else{ echo "__________________________________________";} ?>
+					</td>
+				</tr>
+				<tr>
+					<td><b>MOTIVO DE LA SOLICITUD:</b></td>
+					<td>__________________________________________</td>
+				</tr>
+				<tr>
+					<td><b>RECURSOS DISPONIBLES:</b></td>
+					<td>__________________________________________</td>
+				</tr>
+				<tr>
+					<td><b>MONTO APROBADO:</b></td>
+					<td>__________________________________________</td>
+				</tr>
+				<tr>
+					<td><b>OBSERVACIÓN:</b></td>
+					<td>
+						<?php if ( isset($reg->observacion) ) {echo "___<u>".$reg->observacion."<u/>___";}else{ echo "___________________________________________";} ?>
+					</td>
+				</tr>
+				<tr>
+					<td><b>T. SOCIAL RESPONSABLE:</b></td>
+					<td>________<u><?php echo $reg->usuario; ?></u>________</td>
+				</tr>
+				<tr>
+					<td colspan="2"><br></td>
+				</tr>
+			</table>
+			<h5 style="text-align: center;"><u><strong>VISITA DOMICILIARIA</u></strong></h5>
+			<table class="bor3">
+				<tr>
+					<td><b>OBSERVACIONES:</b></td>
+					<td>___________________________________________</td>
+				</tr>
+				<tr>
+					<td colspan="2">______________________________________________________________</td>
+				</tr>
+				<tr>
+					<td colspan="2">______________________________________________________________</td>
+				</tr>
+				<tr>
+					<td colspan="2">______________________________________________________________</td>
+				</tr>
+				<tr>
+					<td colspan="2">______________________________________________________________</td>
+				</tr>
+				<tr>
+					<td colspan="2">______________________________________________________________</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td><b>FECHA:</b>______________ &nbsp;</td>
+					<td><b> RESPONSABLE:</b>____________________________</td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td colspan="4"><br></td>
+				</tr>
+				<tr>
+					<td colspan="4"><br></td>
+				</tr>
+				<tr>
+					<td colspan="4"><br></td>
+				</tr>
+				<tr>
+					<td colspan="4"><br></td>
+				</tr>
+				<tr>
+					<td colspan="4"><br></td>
+				</tr>
+				<tr>
+					<td colspan="4"><br></td>
+				</tr>
+				<tr align="center">
+					<td colspan="2">_____________________________&nbsp; </td>
+					<td colspan="2">&nbsp; _____________________________</td>
+				</tr>
+				<tr align="center">
+					<td colspan="2"><strong>G. DE BIENESTAR SOCIAL</strong></td>
+					<td colspan="2"><strong>PRESIDENCIA</strong></td>
+				</tr>
+				<tr>
+					<td colspan="4"><br></td>
+				</tr>
+				<tr align="center">
+					<td colspan="4">
+						<b>Av. Venezuela con calle 30, al lado de la Perfectura de Iribarren. Telf.(0251) 232.07.09</b>
+					</td>
+				</tr>
+				<tr align="center">
+					<td colspan="4">
+						<b>Fax (0251) 232.87.03 www.alcadiadebarquisimeto.gov.ve</b>
+					</td>
+				</tr>
+				<tr align="center">
+					<td colspan="4">
+						<b>email: fundaciondelniñoiribarren@hotmail.com</b>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript" src="../public/jquery/dist/jquery.min.js"></script>
+	<script>
+		//Obtenemos la fecha actual
+	var now = new Date();
+	var day = ("0" + now.getDate()).slice(-2);
+	var month = ("0" + (now.getMonth() + 1)).slice(-2);
+	var today = (day)+"-"+(month)+"-"+now.getFullYear();
+    $('#fecha_actual').val(today);
+
+		var report = <?php echo $reg->id_solicitud; ?>;
+		$.post("../ajax/consultas.php?op=listarFamiliarReport&id="+report,function(r)
+		{
+			$("#detalles").html(r);	
+		});
+
+	</script>
 </body>
 </html>
-
-
 <?php 
 }
 else

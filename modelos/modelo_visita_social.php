@@ -19,7 +19,7 @@
 
 			//Insertamos en la tabla bitacora para llevar un registro de los movimiento en el sistema
 			$sw_bi = true;
-			$sql_bi = "INSERT INTO bitacora (id_usuario,fecha_b,accion,descripcion) VALUES ('$id_usuario','$fecha_a','Agrego','Visita Social')";
+			$sql_bi = "INSERT INTO bitacora (id_usuario,fecha_b,accion,descripcion) VALUES ('$id_usuario','$fecha_a','Agrego','Visita Social de la Solicitud N° $id_solicitud')";
 			
 				//en caso de los datos no se hallan guardado $sw_us guardamos false 
 			ejecutarConsulta($sql_bi) or $sw_bi = false;
@@ -44,7 +44,7 @@
 
 			//Insertamos en la tabla bitacora para llevar un registro de los movimiento en el sistema
 			$sw_bi = true;
-			$sql_bi = "INSERT INTO bitacora (id_usuario,fecha_b,accion,descripcion) VALUES ('$id_usuario','$fecha_a','Edito','Visita Social')";
+			$sql_bi = "INSERT INTO bitacora (id_usuario,fecha_b,accion,descripcion) VALUES ('$id_usuario','$fecha_a','Modifico,'Visita Social de la Solicitud N° $id_solicitud')";
 			
 				//en caso de los datos no se hallan guardado $sw_us guardamos false 
 			ejecutarConsulta($sql_bi) or $sw_bi = false;

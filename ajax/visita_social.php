@@ -15,7 +15,7 @@
 	$trabajador_social = isset($_POST["trabajador_social"])? limpiarCadena($_POST["trabajador_social"]): "";
 	$id_solicitud = isset($_POST["id_solicitud"])? limpiarCadena($_POST["id_solicitud"]): "";
 	$id_usuario = $_SESSION["id_usuario"];
-	$fecha_a = isset($_POST["fecha_a"])? limpiarCadena($_POST["fecha_a"]): "";
+	$fecha_a = isset($_POST["fecha_a"]);
 	
 
 	switch ($_GET["op"]) { // según la opción "op" enviado por el AJAX se procede a comparar

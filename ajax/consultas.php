@@ -40,16 +40,14 @@
 			echo '<thead style="background-color:#A9D0F5">
                 	<th>N°</th>
                     <th>Nombre y Apellido</th>
-                    <th>Fech. de Naci.</th>
+                    <th>Edad</th>
                     <th>Parentesco</th>
                     <th>Ocupacion</th>
-                    <th>Ingreso Bs</th>
-                    <th>Peso Kg</th>
-                    <th>Talla cm</th>
+                    <th>Observacion</th>
                  </thead>';
                  $num = 1;
 			while ($reg = $rspta->fetchObject()) {
-				echo '<tr class="filas"><td>'.$num.'</td><td>'.$reg->nombre_apellido_f.'</td><td>'.$reg->fecha_nacimiento_f.'</td><td>'.$reg->parentesco_f.'</td><td>'.$reg->ocupacion_f.'</td><td>'.$reg->ingreso_f.'</td><td>'.$reg->peso_f.'</td><td>'.$reg->talla_f.'</td></tr>';
+				echo '<tr class="filas"><td>'.$num.'</td><td>'.$reg->nombre_apellido_f.'</td><td>'.$reg->edad_f.'</td><td>'.$reg->parentesco_f.'</td><td>'.$reg->ocupacion_f.'</td><td>'.$reg->observacion_f.'</td>';
 				$num= $num + 1;
 			}
 
@@ -60,8 +58,6 @@
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th></th>
-                    <th></th> 
                 </tfoot>';
 		break;
 
@@ -81,10 +77,12 @@
 					"1"=>$reg->id_solicitud,
 					"2"=>$reg->fecha,
 					"3"=>$reg->solicitante.' - '.$reg->cedula_s,
-					"4"=>$reg->beneficiario.' - '.$reg->cedula_b,
-					"5"=>$reg->solicitud.' - '.$reg->descripcion,
-					"6"=>$reg->parroquia,					
-					"7"=>($reg->estado == 'En espera')?'<span class="label bg-red">En espera</span>':
+					"4"=>$reg->edad_s,
+					"5"=>$reg->beneficiario.' - '.$reg->cedula_b,
+					"6"=>$reg->edad_b,
+					"7"=>$reg->solicitud.' - '.$reg->descripcion,
+					"8"=>$reg->parroquia,					
+					"9"=>($reg->estado == 'En espera')?'<span class="label bg-red">En espera</span>':
 	 				'<span class="label bg-green">Aprobado</span>'
 				);
 			} //Declaramos un nuevo array y le asignamos los valores
@@ -109,10 +107,9 @@
 			while ($reg = $rspta->fetchObject()) {
 				$data[] = array(
 					"0"=>$reg->fecha_b,
-					"1"=>$reg->id_solicitud,
-					"2"=>$reg->cargo,
-					"3"=>$reg->usuario,
-					"4"=>$reg->accion.' - '.$reg->descripcion
+					"1"=>$reg->cargo,
+					"2"=>$reg->usuario,
+					"3"=>$reg->accion.' - '.$reg->descripcion
 				);
 			} //Declaramos un nuevo array y le asignamos los valores
 			$results = array(
@@ -122,6 +119,36 @@
 				"aaData"=>$data); // le enviamos el array que almacenamos los datos
 				//Devolvemos a la petición AJAX el ultimo array
 			echo json_encode($results);
+		break;
+
+		case 'listarFamiliarReport':
+			//Recibimos el id de la solicitud
+			$id = isset($_GET["id"])? limpiarCadena($_GET["id"]): "";
+			//$id=$_GET["id"];
+			//echo $id;
+
+			$rspta = $consultas->listarFamiliar($id);
+
+			echo '<thead>                	
+                    <th style="text-align: center;"><h6><b>NOMBRRE Y APELLIDO</b></h6></th>
+                    <th style="text-align: center;"><h6><b>EDAD</b></h6></th>
+                    <th style="text-align: center;"><h6><b>PARENTESCO</b></h6></th>
+                    <th style="text-align: center;"><h6><b>OCUPACIÓN</b></h6></th>
+                    <th style="text-align: center;"><h6><b>OBSERVACIÓN</b></h6></th>
+                 </thead>';
+                 $num = 1;
+			while ($reg = $rspta->fetchObject()) {
+				echo '<tr class="filas"><td style="text-align: center;">'.$reg->nombre_apellido_f.'</td><td style="text-align: center;">'.$reg->edad_f.'</td><td style="text-align: center;">'.$reg->parentesco_f.'</td><td style="text-align: center;">'.$reg->ocupacion_f.'</td><td style="text-align: center;">'.$reg->observacion_f.'</td>';
+				$num= $num + 1;
+			}
+
+			echo '<tfoot>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tfoot>';
 		break;
 
 	}

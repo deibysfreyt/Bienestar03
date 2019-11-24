@@ -1,0 +1,78 @@
+
+
+table {
+	margin: auto;
+   font-size: 13px;
+}
+
+.cabecera {
+	text-align: center;
+}
+
+.bor {
+	
+   border: 1px solid #000;
+}
+
+.borfami tr th {
+   border: 1px solid #000;
+   padding: 0.5em;
+}
+
+.borfami tr td {
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.5em
+   vertical-align: top;
+}
+
+#este tr td {
+	text-align: center;
+}
+
+.bor tr td {
+	width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.5em
+}
+
+.bor thead th {
+	width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.1em
+}
+.modelo {
+   
+}
+
+.izquierda {
+   float: left;
+}
+
+.derecha {
+ float: right;
+}
+
+.dentro {
+   flex-direction: column;
+
+}
+.bor3 tr td {
+   padding: 0.8em;
+}
+
+.bo tr td {
+   width: 170PX;
+   text-align: left;
+ 
+   border: 1px solid #000;
+   margin-left: 0px;
+   
+   padding: 0.5em
+}

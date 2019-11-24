@@ -23,7 +23,7 @@ function init(){
 	var month = ("0" + (now.getMonth() + 1)).slice(-2);
 	var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
     $('#fecha_actual').val(today);
-    $('#fecha_a').val(today);
+    $('#fecha_a').val(now.toLocaleString());
 }
 
 	//Función limpiar los objetos del formulario ID

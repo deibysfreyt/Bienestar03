@@ -17,7 +17,7 @@ function init(){
 	var now = new Date();
 	var day = ("0" + now.getDate()).slice(-2);
 	var month = ("0" + (now.getMonth() + 1)).slice(-2);
-	var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+	var today = now.getFullYear()+"-"+(month)+"-"+(day);
     $('#fecha_actual').val(today);
 }
 
@@ -28,37 +28,36 @@ function limpiar(){
 	$("#id_solicitante").val("");
 	$("#cedula").val("");
 	$("#nombre_apellido").val("");
-	$("#sexo").val("");
+	$("#fecha_nacimiento").val("");
 	$("#direccion").val("");
 	$("#telefono_1").val("");
 	$("#telefono_2").val("");
-	$("#email").val("");
 	$("#parroquia").val("");
-	$("#estado_civil").val("");
 	$("#ocupacion").val("");
-	$("#esterilizada").val("");
-	$("#beneficio_gubernamental").val("");
-
+	$("#edad_s").val("");
+	
 	//Beneficiario
 	$("#id_beneficiario").val("");
 	$("#cedula_b").val("");
 	$("#nombre_apellido_b").val("");
-	$("#parentesco").val("");
 	$("#semana_embarazo_b").val("");
 	$("#id_tipo_solicitud").val("");
-	$("#talla_zapato").val("");
-	$("#talla_pantalon").val("");
-	$("#talla_franela").val("");
+	$("#edad_b").val("");
+	$("#fecha_nacimiento_b").val("");
+	$("#diagnostico").val("");
+	$("#observacion").val("");
 
 	//Informacion adicional
 	$("#id_solicitud").val("");
-	$("#medio_informacion").val("");
-	$("#observacion").val("");
 	$("#tipo_vivienda").val("");
 	$("#tenencia").val("");
 	$("#construccion").val("");
 	$("#tipo_piso").val("");
     $('#fecha').val("");
+    $("#recaudos").val("");
+
+
+    $("#usuario").val("");
 
     //removemos las filas de los familiares
 	$(".filas").remove();
@@ -129,29 +128,24 @@ function mostrar(id_solicitud){
 		//$("#id_solicitante").val(data.id_solicitante);
 		$("#cedula").val(data.cedula);
 		$("#nombre_apellido").val(data.nombre_apellido);
+		$("#edad_s").val(data.edad_s);
 		$("#fecha_nacimiento").val(data.fecha_nacimiento);
-		$("#sexo").val(data.sexo);
 		$("#direccion").val(data.direccion);
 		$("#telefono_1").val(data.telefono_1);
 		$("#telefono_2").val(data.telefono_2);
-		$("#email").val(data.email);
 		$("#parroquia").val(data.parroquia);		
-		$("#estado_civil").val(data.estado_civil);		
 		$("#ocupacion").val(data.ocupacion);
-		$("#esterilizada").val(data.esterilizada);		
-		$("#beneficio_gubernamental").val(data.beneficio_gubernamental);
-		$("#num_hijo").val(data.num_hijo);
 		$("#ingreso").val(data.ingreso);
+		$("#estado_civil").val(data.estado_civil);
 		
 		//Devuelvo los datos del Beneficiario 
 		$("#cedula_b").val(data.cedula_b);
 		$("#nombre_apellido_b").val(data.nombre_apellido_b);
 		$("#fecha_nacimiento_b").val(data.fecha_nacimiento_b);
-		$("#parentesco").val(data.parentesco);		
-		$("#semana_embarazo").val(data.semana_embarazo);		
-		$("#talla_zapato").val(data.talla_zapato);		
-		$("#talla_pantalon").val(data.talla_pantalon);		
-		$("#talla_franela").val(data.talla_franela);
+		$("#semana_embarazo").val(data.semana_embarazo);
+		$("#edad_b").val(data.edad_b);
+		$("#diagnostico").val(data.diagnostico);
+		$("#observacion").val(data.observacion);
 		
 		//$("#id_beneficiario").val(data.id_beneficiario);
 
@@ -160,12 +154,13 @@ function mostrar(id_solicitud){
 		$("#fecha").val(data.fecha);
 		$("#solicitud").val(data.solicitud);
 		$("#descripcion").val(data.descripcion);
-		$("#medio_informacion").val(data.medio_informacion);
-		$("#observacion").val(data.observacion);
 		$("#tipo_vivienda").val(data.tipo_vivienda);
 		$("#tenencia").val(data.tenencia);
 		$("#construccion").val(data.construccion);
 		$("#tipo_piso").val(data.tipo_piso);
+		$("#recaudos").val(data.recaudos);
+
+		$("#usuario").val(data.usuario);
 		
 	});
 

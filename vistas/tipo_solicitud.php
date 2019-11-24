@@ -58,21 +58,16 @@
             <!-- Es el formulario del Usuario -->
           <form name="formulario" id="formulario" method="POST">
             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <label>Solicitud():</label>
+              <label>Solicitud(*):</label>
               <input type="hidden" name="id_tipo_solicitud" id="id_tipo_solicitud">
-              <select name="solicitud" id="solicitud" class="form-control selectpicker" data-live-search="true" required>
-                <option value="Ayudas Medicas">Ayudas Medicas</option>
-                <option value="Canastillas">Canastillas</option>
-                <option value="Enseres y Ayudas Tecnicas">Enseres y Ayudas Técnicas</option>
-                <option value="Otros">Otros</option>            
-              </select>
+              <input type="text" class="form-control" name="solicitud" id="solicitud" maxlength="45" placeholder="Categoria de la Solicitud" required>
             </div>
             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <label>Descripción:</label>
               <input type="text" class="form-control" name="descripcion" id="descripcion" maxlength="45" placeholder="Descripción">
             </div>
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <button class="btn btn-primary" type="submit" id="btnGuardar"  onmouseover="validacionts()"><i class="fa fa-save"></i> Guardar</button>
+              <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
               <button class="btn btn-danger" onclick="cancelarform()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
             </div>
           </form>
@@ -90,8 +85,7 @@
 ?>
     <!-- Aquí llamamos a los Script que controla toda la pagina  -->
   <script type="text/javascript" src="scripts/tipo_solicitud.js"></script>
-     <!-- Aquí llamamos a los Script de Validación del Formulario  -->
-  <script type="text/javascript" src="scripts/validacionts.js"></script>
+
 <?php 
   } // Se Cierra el Else 
   ob_end_flush();

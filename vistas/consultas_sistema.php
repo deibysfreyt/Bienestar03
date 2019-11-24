@@ -43,7 +43,6 @@
           <table id="tbllistado" class="table table-striped table-borderd table-condensed table-hover">
             <thead>          
               <th>Fecha</th>
-              <th>N° de Control</th>
               <th>Cargo</th>
               <th>Usuario</th>
               <th>Actividad</th>        
@@ -53,7 +52,6 @@
             </tbody>
             <tfoot>
               <th>Fecha</th>
-              <th>N° de Control</th>
               <th>Cargo</th>
               <th>Usuario</th>
               <th>Actividad</th> 

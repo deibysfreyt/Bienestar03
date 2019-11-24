@@ -43,10 +43,12 @@
           <table id="tbllistado" class="table table-striped table-borderd table-condensed table-hover">
             <thead>
               <th>Opciones</th>
-              <th>N° Control</th>
+              <th>N° Solicitud</th>
               <th>Fecha de Solicitud</th>              
               <th>Solicitante - .CI.</th>
+              <th>Edad</th>
               <th>Beneficiario - .CI.</th>
+              <th>Edad</th>
               <th>Solicitud - Descripción</th>
               <th>Parroquia</th>
               <th>Estado</th>          
@@ -56,10 +58,12 @@
             </tbody>
             <tfoot>
               <th>Opciones</th>
-              <th>N° Control</th>
+              <th>N° Solicitud</th>
               <th>Fecha de Solicitud</th>              
               <th>Solicitante - .CI.</th>
+              <th>Edad</th>
               <th>Beneficiario - .CI.</th>
+              <th>Edad</th>
               <th>Solicitud - Descripción</th>
               <th>Parroquia</th>
               <th>Estado</th>
@@ -72,69 +76,61 @@
             <div class="stepwizard-row setup-panel">
               <div class="stepwizard-step">
                 <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
-                <p>Step 1</p>
+                <p>Solicitante</p>
               </div>
               <div class="stepwizard-step">
                 <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
-                <p>Step 2</p>
+                <p>Beneficiario</p>
               </div>
               <div class="stepwizard-step">
                 <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-                <p>Step 3</p>
+                <p>Informacion</p>
               </div>
             </div>
           </div>
           <form method="POST" id="formulario" name="formulario">
-            <label>N° de Control:</label>
-              <input type="text" name="id_solicitud" id="id_solicitud" style="border: 0px; color: red; font-weight: bold;" readonly=”readonly”>
+            <label>N° Solicitud:</label>
+            <input type="text" name="id_solicitud" id="id_solicitud" style="border: 0px; color: red; font-weight: bold;" readonly=”readonly”>
+            <label>Trabajador Social Responsable: </label>
+            <input type="text" name="usuario" id="usuario" style="border: 0px; color: red; font-weight: bold;" readonly=”readonly”>
+            <label>Fecha de Solicitud: </label>  
+            <input type="date" style="border: 0px; color: red; font-weight: bold;" name="fecha" id="fecha" readonly=”readonly”>
             <div class="row setup-content" id="step-1">
               <div class="col-xs-12">
                 <div class="col-md-12">
                   <h3> Step 1 - Datos del Solicitante</h3>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <label>Cedula(*):</label>
-                    <input type="text" class="form-control" name="cedula" id="cedula" minlength="4" maxlength="8" readonly=”readonly”>
+                    <input type="text" class="form-control" name="cedula" id="cedula" minlength="4" readonly=”readonly”>
                   </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <input type="hidden" name="id_solicitante" id="id_solicitante">
-                    <label>Nombre y Apellido(*):</label>
-                    <input type="text" class="form-control" name="nombre_apellido" id="nombre_apellido" maxlength="30" readonly=”readonly”>
+                    <label>Nombre y Apellido:</label>
+                    <input type="text" class="form-control" name="nombre_apellido" id="nombre_apellido" readonly=”readonly”>
                   </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Fecha de Nacimiento(*):</label>
+                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <label>Fecha de Nacimiento:</label>
                     <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento" readonly=”readonly”>
                   </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Sexo(*):</label>
-                    <input type="text" class="form-control" name="sexo" id="sexo" readonly=”readonly”>
+                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <label>Edad:</label>
+                    <input type="text" class="form-control" name="edad_s" id="edad_s" readonly=”readonly”>
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Numeros de Hijos(*):</label>
-                    <input type="text" class="form-control" name="num_hijo" id="num_hijo" readonly="readonly">
+                    <label>Parroquia:</label>
+                    <input type="text" class="form-control" name="parroquia" id="parroquia" readonly=”readonly”>
+                  </div> 
+                  <div class="form-group col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                    <label>Dirección de Habitación:</label>
+                    <input type="text" class="form-control" name="direccion" id="direccion" readonly=”readonly”>
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Ingreso Bs(*):</label>
-                    <input type="text" class="form-control" name="ingreso" id="ingreso" readonly="readonly">
-                  </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Dirección de Habitación(*):</label>
-                    <input type="text" class="form-control" name="direccion" id="direccion" maxlength="100" readonly=”readonly”>
-                  </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Teléfono Principal(*):</label>
-                    <input type="text" class="form-control" name="telefono_1" id="telefono_1" maxlength="12" readonly=”readonly”>
+                    <label>Teléfono Principal:</label>
+                    <input type="text" class="form-control" name="telefono_1" id="telefono_1" readonly=”readonly”>
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <label>Teléfono Secundario:</label>
-                    <input type="text" class="form-control" name="telefono_2" id="telefono_2" maxlength="12" readonly=”readonly”>
-                  </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Email:</label>
-                    <input type="email" class="form-control" name="email" id="email" maxlength="30" readonly=”readonly”>
-                  </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Parroquia(*):</label>
-                    <input type="text" class="form-control" name="parroquia" id="parroquia" readonly=”readonly”>
+                    <input type="text" class="form-control" name="telefono_2" id="telefono_2" readonly=”readonly”>
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <label>Estado Civil:</label>
@@ -142,15 +138,11 @@
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <label>Ocupación(*):</label>
-                    <input type="text" class="form-control" name="ocupacion" id="ocupacion" maxlength="50" readonly=”readonly”>
+                    <input type="text" class="form-control" name="ocupacion" id="ocupacion" readonly=”readonly”>
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Beneficio Gubernamental:</label>
-                    <input type="text" class="form-control" name="beneficio_gubernamental" id="beneficio_gubernamental" maxlength="50" readonly=”readonly”>
-                  </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Esterilizada(o)(*): </label>
-                    <input type="text" class="form-control" name="esterilizada" id="esterilizada" readonly=”readonly”>
+                    <label>Ingreso Bs:</label>
+                    <input type="text" class="form-control" name="ingreso" id="ingreso" readonly="readonly">
                   </div>
                   <div class="setup-panel">
                     <div>
@@ -165,43 +157,39 @@
               <div class="col-xs-12">
                 <div class="col-md-12">
                   <h3> Step 2 - Datos del Beneficiario</h3>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <label>Cedula:</label>
-                    <input type="text" class="form-control" name="cedula_b" id="cedula_b" maxlength="8" readonly=”readonly”>
+                    <input type="text" class="form-control" name="cedula_b" id="cedula_b" readonly=”readonly”>
                   </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Nombre y Apellido(*):</label>
-                    <input type="text" class="form-control" name="nombre_apellido_b" id="nombre_apellido_b" maxlength="50" readonly=”readonly”>
-                  </div>                        
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Fecha de Nacimiento(*):</label>
+                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <label>Nombre y Apellido:</label>
+                    <input type="text" class="form-control" name="nombre_apellido_b" id="nombre_apellido_b" readonly=”readonly”>
+                  </div>
+                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <label>Edad:</label>
+                    <input type="text" class="form-control" name="edad_b" id="edad_b" readonly=”readonly”>
+                  </div>                      
+                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <label>Fecha de Nacimiento:</label>
                     <input type="date" class="form-control" name="fecha_nacimiento_b" id="fecha_nacimiento_b" readonly=”readonly”>
                   </div>
+                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <label>Diagnostico:</label>
+                    <input type="text" class="form-control" name="diagnostico" id="diagnostico" placeholder="Diagnostico" readonly=”readonly”>
+                  </div>
+                  <div class="form-group col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                    <label>Observacion:</label>
+                    <input type="text" class="form-control" name="observacion" id="observacion" placeholder="Observacion" readonly=”readonly”>
+                  </div>           
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Parentesco(*):</label>
-                    <input type="text" class="form-control" name="parentesco" id="parentesco" readonly=”readonly”>
-                  </div>                  
-                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Tipo de Solicitud(*):</label>
+                    <label>Tipo de Solicitud:</label>
                     <input type="text" class="form-control" name="solicitud" id="solicitud" readonly=”readonly”>
                     <input type="text" class="form-control" name="descripcion" id="descripcion" readonly=”readonly”>
                   </div>
-                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">                        
+                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">           
                     <label>Semana de Embarazo: </label>
                     <input type="text" class="form-control" name="semana_embarazo" id="semana_embarazo" readonly=”readonly”>
-                  </div>
-                  <div class="form-group col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                    <label>Talla de Zapato:</label>
-                    <input type="text" class="form-control" name="talla_zapato" id="talla_zapato" readonly=”readonly”>
-                  </div>
-                  <div class="form-group col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                    <label>Talla de Pantalón:</label>
-                    <input type="text" class="form-control" name="talla_pantalon" id="talla_pantalon" readonly=”readonly”>
-                  </div>
-                  <div class="form-group col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                    <label>Talla de Franela:</label>
-                    <input type="text" class="form-control" name="talla_franela" id="talla_franela" readonly=”readonly”>
-                  </div>                                                     
+                  </div>                                          
                   <div class="setup-panel">
                     <div>
                       <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" style="margin: 2px">Siguiente</button>
@@ -214,36 +202,24 @@
             <div class="row setup-content" id="step-3">
               <div class="col-xs-12">
                 <div class="col-md-12">
-                  <h3> Step 3 - Información de Solicitud</h3>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <label>Medio de Información(*):</label>
-                    <input type="text" class="form-control" name="medio_informacion" id="medio_informacion" readonly=”readonly”>
-                  </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <label>Observación:</label>
-                    <input type="text" class="form-control" name="observacion" id="observacion" readonly=”readonly”>
-                  </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <label>Fecha de Solicitud(*):</label>
-                    <input type="date" class="form-control" name="fecha" id="fecha" readonly=”readonly” required>
-                  </div>
+                  <h3> Step 3 - Información de Solicitud</h3> 
                   <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <h4 style="text-align: center;"><strong>Área Física Ambiental</strong></h4>
                   </div>
                   <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <label>Tipo de Vivienda(*):</label>
+                    <label>Tipo de Vivienda:</label>
                     <input type="text" class="form-control" name="tipo_vivienda" id="tipo_vivienda" readonly=”readonly”>     
                   </div>
                   <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <label>Tenencia(*):</label>
+                    <label>Tenencia:</label>
                     <input type="text" class="form-control" name="tenencia" id="tenencia" readonly=”readonly”>
                   </div>
                   <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <label>Construcción(*):</label>
+                    <label>Construcción:</label>
                     <input type="text" class="form-control" name="construccion" id="construccion" readonly=”readonly”>
                   </div>
                   <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <label>Piso(*):</label>
+                    <label>Piso:</label>
                     <input type="text" class="form-control" name="tipo_piso" id="tipo_piso" readonly=”readonly”>
                   </div>
                   <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -254,19 +230,15 @@
                       <thead style="background-color:#A9D0F5">
                         <th>Opciones</th>
                         <th>Nombre y Apellido</th>
-                        <th>Fech. de Naci.</th>
+                        <th>Edad</th>
                         <th>Parentesco</th>
                         <th>Ocupacion</th>
-                        <th>Ingreso Bs</th>
-                        <th>Peso Kg</th>
-                        <th>Talla cm</th>
+                        <th>Observacion</th>
                       </thead>
                       <tbody>
                                   
                       </tbody>
                       <tfoot>
-                        <th></th>
-                        <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -279,7 +251,7 @@
                   <div class="form-group pull-right col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="setup-panel">
                       <div>
-                        <a href="#step-2"><button class=" btn btn-previous btn-lg pull-right" type="button" style="margin: 2px"><strong>Anterior</strong></button></a> 
+                        <a href="#step-2"><button class=" btn btn-previous btn-lg pull-right" type="button" style="margin: 2px"><strong>Anterior</strong></button></a>
                       </div>                
                     </div>                          
                   </div>

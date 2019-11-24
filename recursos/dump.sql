@@ -1,1 +1,0 @@
-El volcado de datos de tablas y esquemas con nombres complejos  no esta soportado en Windows.

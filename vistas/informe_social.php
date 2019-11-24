@@ -20,7 +20,7 @@
         <section class="content-header">
           <div class="box-header with-border">
             <h1 class="box-title">Solicitantes
-              <button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar Nuevo Informe</button></h1>
+              <button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Nuevo Solicitud</button></h1>
             <div class="box-tools pull-right"></div>
           </div>
           <div>
@@ -28,7 +28,7 @@
             <input type="date" name="fecha_actual" style="border: 0px" id="fecha_actual" readonly=”readonly”>
           </div>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-slideshare"></i> Solicitantes </a></li>
+            <li><a href="#"><i class="fa fa-slideshare"></i> Solicitudes </a></li>
           </ol>
         </section>
           <!-- Data Table en donde mostramos los datos ya registrado -->
@@ -62,15 +62,15 @@
             <div class="stepwizard-row setup-panel">
               <div class="stepwizard-step">
                 <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
-                <p>Step 1</p>
+                <p>Solicitante</p>
               </div>
               <div class="stepwizard-step">
                 <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
-                <p>Step 2</p>
+                <p>Beneficiario</p>
               </div>
               <div class="stepwizard-step">
                 <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-                <p>Step 3</p>
+                <p>Información</p>
               </div>
             </div>
           </div>
@@ -81,62 +81,46 @@
                   <h3> Step 1 - Datos del Solicitante</h3>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <label>Cedula(*):</label>
-                    <input type="text" class="form-control" name="cedula" id="cedula" minlength="4" maxlength="8" placeholder="12345678" pattern="[0-9]{4,8}" title="Solo numeros" required>
+                    <input type="text" class="form-control" name="cedula" id="cedula" minlength="4" maxlength="8" placeholder="12345678" title="Solo numeros" required>
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <input type="hidden" name="id_solicitante" id="id_solicitante">
                     <label>Nombre y Apellido(*):</label>
-                    <input type="text" class="form-control" name="nombre_apellido" id="nombre_apellido" placeholder="Nombre y Apellido" maxlength="30" required>
+                    <input type="text" class="form-control" name="nombre_apellido" id="nombre_apellido" placeholder="Nombre y Apellido" maxlength="50" required>
+                  </div>
+                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <label>Edad:</label>
+                    <input type="text" class="form-control" name="edad_s" id="edad_s" maxlength="2" placeholder="xx">
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <label>Fecha de Nacimiento(*):</label>
                     <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento" required>
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Sexo(*):</label>
-                    <select name="sexo" id="sexo" class="form-control selectpicker" data-live-search="true" title="Seleccione el sexo" required>
-                      <option value="Femenino">Femenino</option>
-                      <option value="Masculino">Masculino</option>                                 
-                    </select>
-                  </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Numeros de Hijos(*):</label>
-                    <select name="num_hijo" id="num_hijo" class="form-control select-picker" data-live-search="true" title="Numeros de Hijos" required>
-                      <?php
-                        for ($i=0; $i <= 15; $i++) { 
-                          echo "<option value=$i>". $i."</option>";
-                        }
-                      ?>
-                    </select>
-                  </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Ingreso Bs(*):</label>
-                    <input type="text" class="form-control" name="ingreso" id="ingreso" maxlength="7" placeholder="Ingreso Monetario" title="dinero" required>
+                    <label>Ingresos Bs:</label>
+                    <input type="text" class="form-control" name="ingreso" id="ingreso" maxlength="7" placeholder="1234567">
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <label>Dirección de Habitación(*):</label>
                     <input type="text" class="form-control" name="direccion" id="direccion" maxlength="100" placeholder="direccion de habitacion"  required>
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Teléfono Principal(*):</label>
-                    <input type="text" class="form-control" name="telefono_1" id="telefono_1" maxlength="12" placeholder="04xx-1234455" title="Telefono Celular" required>
+                    <label>Teléfono Celular(*):</label>
+                    <input type="text" class="form-control" name="telefono_1" id="telefono_1" maxlength="11" placeholder="04xx1234455" title="Telefono Celular" required>
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Teléfono Secundario:</label>
-                    <input type="text" class="form-control" name="telefono_2" id="telefono_2" maxlength="12" placeholder="0416-1234455 Ó 0251-1234455">
-                  </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Email:</label>
-                    <input type="email" class="form-control" name="email" id="email" maxlength="30" placeholder="ejemplo@dominio.com" title="Correo Electronico">
+                    <label>Teléfono Fijo:</label>
+                    <input type="text" class="form-control" name="telefono_2" id="telefono_2" maxlength="11" placeholder="02511234455" title="Telefono Fijo">
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <label>Parroquia(*):</label>
-                    <select name="parroquia" id="parroquia" class="form-control selectpicker" data-live-search="true" title="Seleccione una Parroquia" required>
+                    <select name="parroquia" id="parroquia" class="form-control selectpicker" data-live-search="true" required>
+                      <option disabled="" selected="">-------</option>
                       <option value="Buena Vista">Buena Vista</option>
                       <option value="Catedral">Catedral</option>
                       <option value="Concepció">Concepción</option>
-                      <option value="Felipe Alvarado">Felipe Alvarado</option>
-                      <option value="Juan de Villegas">Juan de Villegas</option>
+                      <option value="Aguedo Felipe Alvarado">Aguedo Felipe Alvarado</option>
+                      <option value="Ana Soto">Ana Soto</option>
                       <option value="El Cuji">El Cuji</option>
                       <option value="Juárez">Juárez</option>
                       <option value="Santa Rosa">Santa Rosa</option>
@@ -146,35 +130,25 @@
                     </select>
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Estado Civil:</label>
-                    <select name="estado_civil" id="estado_civil" class="form-control selectpicker" data-live-search="true" title="Seleccione su Estado civil" required>
+                    <label>Estado Civil(*):</label>
+                    <select name="estado_civil" id="estado_civil" class="form-control selectpicker" data-live-search="true" required>
+                      <option disabled="" selected="">-------</option>
                       <option value="Soltera(o)">Soltera(o)</option>
                       <option value="Casada(o)">Casada(o)</option>
                       <option value="Divorciada(o)">Divorciada(o)</option>
                       <option value="Separada(o)">Separada(o)</option>
                       <option value="Conviviente">Conviviente</option>
-                      <option value="Viuda">Viuda</option>         
+                      <option value="Viuda(o)">Viuda(o)</option>         
                     </select>                      
                   </div>
                   <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Ocupación(*):</label>
-                    <input type="text" class="form-control" name="ocupacion" id="ocupacion" maxlength="50" placeholder="Su funte de trabajo u oficio" title="A que se dedica" required>
-                  </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Beneficio Gubernamental:</label>
-                    <input type="text" class="form-control" name="beneficio_gubernamental" id="beneficio_gubernamental" maxlength="50" placeholder="Algun beneficio gubernamental que posea actualmente">
-                  </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Esterilizada(o)(*): </label>
-                    <select name="esterilizada" id="esterilizada" class="form-control selectpicker" data-live-search="true" title="Seleccione una opcion" required>
-                      <option value="Si">Si</option>
-                      <option value="No">No</option>                                 
-                    </select>
+                    <label>Ocupación:</label>
+                    <input type="text" class="form-control" name="ocupacion" id="ocupacion" maxlength="50" placeholder="Su funte de trabajo u oficio" title="A que se dedica">
                   </div>
                   <div class="setup-panel">
                     <div>
                       <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" style="margin: 2px">Siguiente</button>
-                      <button class="btn btn-danger btn-lg pull-right" onclick="cancelarform()" type="button" style="margin: 2px"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
+                      <button class="btn btn-danger btn-lg pull-right" onclick="cancelarform()" type="button" style="margin: 2px"> Cancelar</button>
                     </div>                
                   </div>                    
                 </div>
@@ -184,93 +158,56 @@
               <div class="col-xs-12">
                 <div class="col-md-12">
                   <h3> Step 2 - Datos del Beneficiario</h3>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <input type="hidden" name="id_beneficiario" id="id_beneficiario">
                     <label>Cedula:</label>
                     <input type="text" class="form-control" name="cedula_b" id="cedula_b" maxlength="8" placeholder="12345678">
                   </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <label>Nombre y Apellido(*):</label>
                     <input type="text" class="form-control" name="nombre_apellido_b" id="nombre_apellido_b" maxlength="50" placeholder="Nombre y Apellido" required>
-                  </div>                        
-                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <label>Fecha de Nacimiento(*):</label>
-                    <input type="date" class="form-control" name="fecha_nacimiento_b" id="fecha_nacimiento_b" required>
                   </div>
-                  <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <label>Parentesco(*):</label>
-                    <select name="parentesco" id="parentesco" class="form-control selectpicker" data-live-search="true" title="Seleccione un parentesco" required>
-                      <option value="Padre">Padre</option>
-                      <option value="Madre">Madre</option>
-                      <option value="Suegra(o)">Suegra(o)</option>
-                      <option value="Hija(o)">Hija(o)</option>
-                      <option value="Hermana(o)">Hermana(o)</option>
-                      <option value="Cuñada(o)">Cuñada(o)</option>
-                      <option value="Abuela(o)">Abuela(o)</option>
-                      <option value="Yerna(o)">Yerna(o)</option>
-                      <option value="Nieta(o)">Nieta(o)</option>
-                      <option value="Tia(o)">Tía(o)</option>
-                      <option value="Sobrina(o)">Sobrina(o)</option>
-                      <option value="Prima(o)">Prima(o)</option>
-                    </select>
-                  </div>                  
+                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <label>Edad(*):</label>
+                    <input type="text" class="form-control" name="edad_b" id="edad_b" maxlength="2" placeholder="xx">
+                  </div>                         
+                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <label>Fecha de Nacimiento(*):</label>
+                    <input type="date" class="form-control" name="fecha_nacimiento_b" id="fecha_nacimiento_b">
+                  </div>                
                   <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <label>Tipo de Solicitud(*):</label>
-                    <select name="id_tipo_solicitud" id="id_tipo_solicitud" class="form-control selectpicker" title="Seleccione una Solicitud" data-live-search="true" required>
+                    <select name="id_tipo_solicitud" id="id_tipo_solicitud" class="form-control selectpicker" data-live-search="true" title="----------------" required>
+
                     </select>
                   </div>
-                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">                        
-                    <label>Semana de Embarazo: </label>                                  
-                    <select name="semana_embarazo" id="semana_embarazo" class="form-control select-picker" title="En caso de Canastilla" data-live-search="true">
-                      <?php
-                        for ($i=0; $i <= 42; $i++) { 
-                          echo "<option value=$i>". $i."</option>";
-                        }
-                      ?>
-                    </select>
+                  <div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <label>Semana de Embarazo(*): </label>
+                    <input type="text" class="form-control" name="semana_embarazo" id="semana_embarazo" title="Semana de Embarazo" placeholder="Semana de Embarazo" maxlength="2">
                   </div>
-                  <div class="form-group col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                    <label>Talla de Zapato:</label>
-                    <select name="talla_zapato" id="talla_zapato" class="form-control select-picker" title="?" data-live-search="true" required>
-                      <?php
-                        for ($i=18; $i <= 45; $i++) { 
-                          echo "<option value=$i>". $i. "</option>";
-                        }
-                      ?>
-                    </select>
+                  <?php 
+                    if ($_SESSION['Gestion de Solicitud']==1){
+                      echo '<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                              <label style="color: orange;">Estado de Solicitud(*): </label>
+                              <select name="estado" id="estado" class="form-control" style="color: orange;">
+                                <option value="En espera" selected="selected" style="color: red;">En espera</option>
+                                <option value="Aprobado" style="color: green;">Aprobado</option>
+                              </select> 
+                            </div>';
+                    }
+                  ?> 
+                  <div class="form-group col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <label>Diagnostico:</label>
+                    <input type="text" class="form-control" name="diagnostico" id="diagnostico" maxlength="45" placeholder="Diagnostico">
                   </div>
-                  <div class="form-group col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                    <label>Talla de Pantalón:</label>
-                    <select name="talla_pantalon" id="talla_pantalon" class="form-control select-picker" title="?" data-live-search="true" required>
-                      <?php
-                        for ($i=2; $i <= 36; $i+=2) { 
-                          echo "<option value=$i>". $i. "</option>";
-                        }
-                      ?>
-                    </select>
+                  <div class="form-group col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                    <label>Observacion:</label>
+                    <input type="text" class="form-control" name="observacion" id="observacion" maxlength="100" placeholder="Observacion">
                   </div>
-                  <div class="form-group col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                    <label>Talla de Franela:</label>
-                    <select name="talla_franela" id="talla_franela" class="form-control select-picker" title="?" data-live-search="true" required>
-                      <?php
-                        for ($i=2; $i <= 16; $i+=2) { 
-                          echo "<option value=$i>". $i. "</option>";
-                        }
-                      ?>
-                      <option value="S">SS</option>
-                      <option value="S">S</option>
-                      <option value="M">M</option>
-                      <option value="M">G</option>
-                      <option value="L">L</option>
-                      <option value="XL">XL</option>
-                      <option value="2XL">2XL</option>
-                      <option value="3XL">3XL</option>
-                    </select>
-                  </div>                                                              
                   <div class="setup-panel">
                			<div>
                       <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" style="margin: 2px">Siguiente</button>
-                      <a href="#step-1"><button class=" btn btn-previous btn-lg pull-right" type="button" style="margin: 2px"><strong>Anterior</strong></button></a>
+                      <a href="#step-1"><button class=" btn btn-previous btn-lg pull-right" type="button" style="margin: 2px"><i class="fa fa-arrow-circle-left"></i><strong>Anterior</strong></button></a>
                 		</div>                
             			</div>
                 </div>
@@ -281,24 +218,17 @@
                 <div class="col-md-12">
                   <h3> Step 3 - Información de Solicitud</h3>
                   <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <label>Medio de Información(*):</label>
-                    <input type="hidden" name="id_solicitud" id="id_solicitud">
-                    <input type="text" class="form-control" name="medio_informacion" id="medio_informacion" maxlength="30" placeholder="Medio en que se entero de la Fundacion" required>
-                  </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <label>Observación:</label>
-                    <input type="text" class="form-control" name="observacion" id="observacion" maxlength="45" placeholder="Alguna observacion que acotar">
-                  </div>
-                  <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <label>Fecha de Solicitud(*):</label>
-                    <input type="date" class="form-control" name="fecha" id="fecha" readonly=”readonly” required>
+                    <input type="hidden" name="id_solicitud" id="id_solicitud">
+                    <input type="date" class="form-control" name="fecha" id="fecha" required>
                   </div>
                   <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <h4><strong>Área Física Ambiental</strong></h4>
                   </div>
                   <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <label>Tipo de Vivienda(*):</label>
-                    <select name="tipo_vivienda" id="tipo_vivienda" class="form-control selectpicker" title="Seleccione el tipo" required>
+                    <label>Tipo de Vivienda:</label>
+                    <select name="tipo_vivienda" id="tipo_vivienda" data-live-search="true" class="form-control" title="Seleccione el tipo">
+                      <option value="">-----</option>
                       <option value="Quinta">Quinta</option>
                       <option value="Apartamento">Apartamento</option>
                       <option value="Casa">Casa</option>
@@ -306,8 +236,9 @@
                     </select>
                   </div>
                   <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <label>Tenencia(*):</label>
-                    <select name="tenencia" id="tenencia" class="form-control selectpicker" title="Seleccione el tipo" required>
+                    <label>Tenencia:</label>
+                    <select name="tenencia" id="tenencia" class="form-control" data-live-search="true" title="Seleccione el tipo">
+                      <option value="">-----</option>
                       <option value="Propia">Propia</option>
                       <option value="Alquilada">Alquilada</option>
                       <option value="Alojada">Alojada</option>
@@ -315,8 +246,9 @@
                     </select>
                   </div>
                   <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <label>Construcción(*):</label>
-                    <select name="construccion" id="construccion" class="form-control selectpicker" title="Seleccione el tipo" required>
+                    <label>Construcción:</label>
+                    <select name="construccion" id="construccion" data-live-search="true" class="form-control" title="Seleccione el tipo">
+                      <option value="">-----</option>
                       <option value="Bloque">Bloque</option>
                       <option value="Bahareque">Bahareque</option>
                       <option value="Zinc">Zinc</option>
@@ -324,8 +256,9 @@
                     </select>
                   </div>
                   <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                    <label>Piso(*):</label>
-                    <select name="tipo_piso" id="tipo_piso" class="form-control selectpicker" title="Seleccione el tipo" required>
+                    <label>Piso:</label>
+                    <select name="tipo_piso" id="tipo_piso" data-live-search="true" class="form-control" title="Seleccione el tipo">
+                      <option value="">-----</option>
                       <option value="Granito">Granito</option>
                       <option value="Cerámica">Cerámica</option>
                       <option value="Cemento">Cemento</option>
@@ -339,22 +272,18 @@
                   </div>
                   <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
                     <table id="detalles" class="table table-striped table-bordered table-condensed table-hover">
-                      <thead style="background-color:#A9D0F5">
-                        <th>Opciones</th>
-                        <th>Nombre y Apellido</th>
-                        <th>Fech. de Naci.</th>
-                        <th>Parentesco</th>
-                        <th>Ocupacion</th>
-                        <th>Ingreso Bs</th>
-                        <th>Peso Kg</th>
-                        <th>Talla cm</th>                              
+                      <thead style="background-color:#A9D0F5; text-align: left;">
+                        <th style="text-align: left;">Opciones</th>
+                        <th style="text-align: left;">Nombre y Apellido</th>
+                        <th style="text-align: left;">Edad</th>
+                        <th style="text-align: left;">Parentesco</th>
+                        <th style="text-align: left;">Ocupacion</th>
+                        <th style="text-align: left;">Observacion</th>                           
                       </thead>
                       <tbody>
                                   
                       </tbody>
                       <tfoot>
-                        <th></th>
-                        <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -367,8 +296,9 @@
                   <div class="form-group pull-right col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="setup-panel">
                				<div>
-                        <a href="#step-2"><button class=" btn btn-previous btn-lg pull-right" type="button" style="margin: 2px"><strong>Anterior</strong></button></a>
-                        <button class="btn btn-primary btn-lg pull-right" type="submit" id="btnGuardar" style="margin: 2px" ><i class="fa fa-save"></i> Guardar</button> 
+                        <button class="btn btn-primary btn-lg pull-right" type="submit" id="btnGuardar" style="margin: 2px" ><i class="fa fa-save"></i> Guardar</button>
+                        <button class="btn btn-danger btn-lg pull-right" onclick="cancelarform()" type="button" style="margin: 2px"> Cancelar</button>
+                        <a href="#step-2"><button class=" btn btn-previous btn-lg pull-right" type="button" style="margin: 2px"><i class="fa fa-arrow-circle-left"></i> <strong> Anterior</strong></button></a>
                 			</div>                
             				</div>                          
                   </div>
@@ -393,7 +323,6 @@
     <!-- Aquí llamamos a los Script que controla toda la pagina  -->
   <script type="text/javascript" src="scripts/informe_social.js"></script>
      <!-- Aquí llamamos a los Script de Validación del Formulario  -->
-  <script type="text/javascript" src="scripts/validacion.js"></script>
 <?php 
   } // Se Cierra el Else
   ob_end_flush();
